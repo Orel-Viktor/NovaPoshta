@@ -18,7 +18,12 @@ const Wrapper = styled(Box)({
 export function Header() {
    return (
       <Wrapper component="header">
-         Header
+         <Box
+            component="div"
+            sx={{ marginRight: '20px', color: 'custom.main' }}
+         >
+            API NovaPoshta
+         </Box>
          <Stack spacing={2} direction="row">
             <Button to={routes.home}>Traking</Button>
             <Button to={routes.admissionsList}>AdmissionsList</Button>
