@@ -1,35 +1,35 @@
 {
-    "env": {
+   "env": {
       "browser": true,
       "node": true
-    },
-    "extends": [
+   },
+   "extends": [
       "eslint:recommended",
       "plugin:react/recommended",
       "plugin:import/recommended",
       "plugin:jsx-a11y/recommended",
       "plugin:@typescript-eslint/recommended",
       "eslint-config-prettier"
-    ],
-    "settings": {
+   ],
+   "settings": {
       "react": {
-        "version": "detect"
+         "version": "detect"
       },
       "import/resolver": {
-        "node": {
-          "paths": ["src"],
-          "extensions": [".js", ".jsx", ".ts", ".tsx"]
-        }
+         "node": {
+            "paths": ["src"],
+            "extensions": [".js", ".jsx", ".ts", ".tsx"]
+         }
       }
-    },
-    "rules": {
+   },
+   "rules": {
       "no-unused-vars": [
-        "error",
-        { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+         "error",
+         { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
       ],
       "react/prop-types": "off"
-    },
-    "globals": {
+   },
+   "globals": {
       "document": false
-    }
-  }
+   }
+}

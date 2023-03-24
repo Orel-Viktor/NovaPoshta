@@ -4,7 +4,6 @@ import { store } from '../../engine/config/store';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { red, green } from '@mui/material/colors';
 import { Container } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 // Parts
@@ -13,13 +12,13 @@ import { Header } from '../components/Header';
 const theme = createTheme({
    palette: {
       primary: {
-         main: red[300],
+         main: '#00e676',
       },
       secondary: {
-         main: green[500],
+         main: '#009688',
       },
       custom: {
-         main: 'yellow',
+         main: '#ff3d00',
       },
    },
 });
