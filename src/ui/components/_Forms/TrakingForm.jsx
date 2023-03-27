@@ -6,12 +6,12 @@ import { Grid, Box } from '@mui/material';
 // Components
 import TextField from './TextField';
 import { Button } from '../Button';
+import { api } from '../../../engine/config/axios';
 
 export function TrakingForm() {
    const onValidate = (value) => {
       const errors = {};
       const regExpDigit = /^\d+$/;
-      console.log(regExpDigit.test(value.tracking));
       if (value.tracking === undefined) {
          errors.tracking = 'Введите значние';
       } else if (!regExpDigit.test(value.tracking)) {
@@ -33,7 +33,6 @@ export function TrakingForm() {
             validate={onValidate}
             onSubmit={onSubmit}
             render={(formProps) => {
-               console.log('FormPorps', formProps);
                const { handleSubmit, valid } = formProps;
                return (
                   <Box component="form" onSubmit={handleSubmit}>
@@ -58,3 +57,5 @@ export function TrakingForm() {
       </div>
    );
 }
+const response = api.getInfo();
+console.log(response);

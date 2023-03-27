@@ -5,7 +5,6 @@ import TextFieldMui from '@mui/material/TextField';
 
 export default function TextField(props) {
    const { id, label, type, variant, input, meta } = props;
-   console.log('meta', meta);
    return (
       <TextFieldMui
          {...input}
