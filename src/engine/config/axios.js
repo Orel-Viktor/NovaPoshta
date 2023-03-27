@@ -8,25 +8,27 @@ const instance = axios.create({
    },
 });
 
-const dataTracking = JSON.stringify({
-   apiKey: '0d34da9bdaf8f13a193c64e2170238ed',
-   modelName: 'TrackingDocument',
-   calledMethod: 'getStatusDocuments',
-   methodProperties: {
-      Documents: [
-         {
-            DocumentNumber: '20450682236944',
-            Phone: '380505960943',
-         },
-      ],
-   },
-});
-
+function createData(number, phone) {
+   return {
+      apiKey: '0d34da9bdaf8f13a193c64e2170238ed',
+      modelName: 'TrackingDocument',
+      calledMethod: 'getStatusDocuments',
+      methodProperties: {
+         Documents: [
+            {
+               DocumentNumber: number,
+               Phone: phone,
+            },
+         ],
+      },
+   };
+}
 export const api = Object.freeze({
-   getInfo() {
-      return instance.get(dataTracking);
+   getInfo(number, phone) {
+      const data = createData(number, phone);
+      return instance.post('', data);
    },
 });
 
-export const response = api.getInfo();
+export const response = api.getInfo('20400048799000', '380962700019');
 export default api;
