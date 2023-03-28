@@ -1,14 +1,16 @@
 // Core
 import React from 'react';
 import { Form, Field } from 'react-final-form';
+import { useDispatch } from 'react-redux';
 // Parts
 import { Grid, Box } from '@mui/material';
 // Components
 import TextField from './TextField';
 import { Button } from '../Button';
-import { api } from '../../../engine/config/axios';
+import { getDataTrackingPackageAsync } from '../../../engine/core/tracking-package/saga/asyncActions';
 
 export function TrakingForm() {
+   const dispatch = useDispatch();
    const onValidate = (value) => {
       const errors = {};
       const regExpDigit = /^\d+$/;
@@ -16,16 +18,15 @@ export function TrakingForm() {
          errors.tracking = 'Введите значние';
       } else if (!regExpDigit.test(value.tracking)) {
          errors.tracking = 'допускаются только числа';
-      } else if (value.tracking.length < 16) {
-         errors.tracking = 'вы ввели меньше 16 цифр';
-      } else if (value.tracking.length > 16) {
-         errors.tracking = 'вы ввели больше 16 цифр';
+      } else if (value.tracking.length < 14) {
+         errors.tracking = 'вы ввели меньше 14 цифр';
+      } else if (value.tracking.length > 14) {
+         errors.tracking = 'вы ввели больше 14 цифр';
       }
       return errors;
    };
-   const onSubmit = (values, form) => {
-      console.log(values);
-      form.reset();
+   const onSubmit = (values) => {
+      dispatch(getDataTrackingPackageAsync(values));
    };
    return (
       <div>
@@ -57,5 +58,3 @@ export function TrakingForm() {
       </div>
    );
 }
-const response = api.getInfo();
-console.log(response);

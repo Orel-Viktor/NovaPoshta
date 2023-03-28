@@ -8,7 +8,7 @@ const instance = axios.create({
    },
 });
 
-function createData(number, phone) {
+function createDataTrackingPackage(number, phone) {
    return {
       apiKey: '0d34da9bdaf8f13a193c64e2170238ed',
       modelName: 'TrackingDocument',
@@ -25,10 +25,7 @@ function createData(number, phone) {
 }
 export const api = Object.freeze({
    getInfo(number, phone) {
-      const data = createData(number, phone);
-      return instance.post('', data);
+      const dataTracking = createDataTrackingPackage(number, phone);
+      return instance.post('', dataTracking);
    },
 });
-
-export const response = api.getInfo('20400048799000', '380962700019');
-export default api;
