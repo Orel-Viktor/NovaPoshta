@@ -1,5 +1,5 @@
 // Core
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectorsTrackingPackage } from '../../engine/core/tracking-package/selectors';
 // Parts
@@ -7,12 +7,7 @@ import { Box } from '@mui/material';
 
 function TrackingHistoryInner(props) {
    const { data } = props;
-   const trackingNumbers = [];
 
-   useEffect(() => {
-      trackingNumbers.push(data.Number);
-   }, []);
-   console.log(trackingNumbers);
    //    localStorage.setItem('trackingNumber', [JSON.stringify(data.Number)]);
    return (
       <>
@@ -25,7 +20,10 @@ function TrackingHistoryInner(props) {
 
 export function TrackingHistory() {
    const trackingItems = useSelector(selectorsTrackingPackage.items);
+   console.log('trackingItems', trackingItems);
    const trackingItemsData = trackingItems.data;
+   console.log('trackingItemsData', trackingItemsData);
+
    return (
       <>
          <Box component="h2">Текущие накладные</Box>
