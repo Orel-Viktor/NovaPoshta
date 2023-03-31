@@ -19,7 +19,6 @@ export function TrackingInfo() {
    const items = useSelector(selectorsTrackingPackage.items);
    const dataItems = items.map((elem) => elem.data).map((elem) => elem[0]);
    console.log(items);
-   // const itemsError = items.map((elem) => elem.errors);
    return (
       <>
          <Box component="h2">INFO</Box>
