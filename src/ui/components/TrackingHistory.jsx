@@ -19,14 +19,11 @@ function TrackingHistoryInner(props) {
 export function TrackingHistory() {
    const items = useSelector(selectorsTrackingPackage.items);
    const dataItems = items.map((elem) => elem.data).map((elem) => elem[0]);
-   console.log(dataItems);
-   console.log(items);
-
    return (
       <>
          <Box component="h2">Текущие накладные</Box>
          {dataItems.length ? (
-            dataItems.map((data, id) => {
+            dataItems.reverse().map((data, id) => {
                return (
                   <TrackingHistoryInner
                      key={id}

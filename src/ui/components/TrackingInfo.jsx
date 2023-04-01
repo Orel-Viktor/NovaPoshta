@@ -17,17 +17,28 @@ function TrackingInfoInner(props) {
 
 export function TrackingInfo() {
    const items = useSelector(selectorsTrackingPackage.items);
+   const currentTrackingNumber = useSelector(
+      selectorsTrackingPackage.trackingNumber
+   );
    const dataItems = items.map((elem) => elem.data).map((elem) => elem[0]);
-   console.log(items);
+
+   console.log(currentTrackingNumber);
    return (
       <>
          <Box component="h2">INFO</Box>
          {dataItems.length ? (
-            dataItems.map((data, id) => {
-               return (
-                  <TrackingInfoInner key={id} data={data}></TrackingInfoInner>
-               );
-            })
+            dataItems
+               .reverse()
+               .filter((elem) => elem.Number === currentTrackingNumber)
+               .slice(0, 1)
+               .map((data, id) => {
+                  return (
+                     <TrackingInfoInner
+                        key={id}
+                        data={data}
+                     ></TrackingInfoInner>
+                  );
+               })
          ) : (
             <div>Статус Посылки</div>
          )}
