@@ -21,15 +21,14 @@ export function TrackingInfo() {
       selectorsTrackingPackage.trackingNumber
    );
    const dataItems = items.map((elem) => elem.data).map((elem) => elem[0]);
-
-   console.log(currentTrackingNumber);
+   console.log(dataItems);
    return (
       <>
          <Box component="h2">INFO</Box>
-         {dataItems.length ? (
+         {typeof dataItems[dataItems.length - 1] !== 'undefined' ? (
             dataItems
                .reverse()
-               .filter((elem) => elem.Number === currentTrackingNumber)
+               .filter((data) => data.Number === currentTrackingNumber)
                .slice(0, 1)
                .map((data, id) => {
                   return (

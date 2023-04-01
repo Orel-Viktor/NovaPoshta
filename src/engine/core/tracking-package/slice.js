@@ -5,7 +5,7 @@ const trackingPackage = createSlice({
    initialState: {
       items: JSON.parse(localStorage.getItem('data')) || [],
       loading: true,
-      trackingNumber: JSON.parse(localStorage.getItem('trackingNumber')) || [],
+      trackingNumber: localStorage.getItem('trackingNumber') || [],
    },
    reducers: {
       addItem: (state, action) => {
@@ -19,8 +19,12 @@ const trackingPackage = createSlice({
             JSON.stringify(state.trackingNumber)
          );
       },
-      setItems: (state, action) => {
-         state.items = action.payload;
+      checkItem: (state, action) => {
+         state.trackingNumber = action.payload;
+         localStorage.setItem(
+            'trackingNumber',
+            JSON.stringify(state.trackingNumber)
+         );
       },
       setLoading: (state, action) => {
          state.loading = action.payload;
@@ -28,6 +32,6 @@ const trackingPackage = createSlice({
    },
 });
 
-export const { setItems, setLoading, addItem, addTrackingNumber } =
+export const { checkItem, setLoading, addItem, addTrackingNumber } =
    trackingPackage.actions;
 export const trackingPackageReducer = trackingPackage.reducer;
