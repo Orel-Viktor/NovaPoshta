@@ -9,6 +9,11 @@ const trackingPackage = createSlice({
    },
    reducers: {
       addItem: (state, action) => {
+         const item = action.payload;
+         if (item.data.length === 0) {
+            alert(item.errors.join());
+            return;
+         }
          state.items = [...state.items, action.payload];
          localStorage.setItem('data', JSON.stringify(state.items));
       },

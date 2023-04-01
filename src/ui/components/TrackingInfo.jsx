@@ -22,22 +22,14 @@ export function TrackingInfo() {
    );
    const dataItems = items.map((elem) => elem.data).map((elem) => elem[0]);
    console.log(dataItems);
+   const selectedItem = dataItems.length
+      ? dataItems.find((data) => data.Number === currentTrackingNumber)
+      : null;
    return (
       <>
          <Box component="h2">INFO</Box>
-         {typeof dataItems[dataItems.length - 1] !== 'undefined' ? (
-            dataItems
-               .reverse()
-               .filter((data) => data.Number === currentTrackingNumber)
-               .slice(0, 1)
-               .map((data, id) => {
-                  return (
-                     <TrackingInfoInner
-                        key={id}
-                        data={data}
-                     ></TrackingInfoInner>
-                  );
-               })
+         {selectedItem ? (
+            <TrackingInfoInner data={selectedItem}></TrackingInfoInner>
          ) : (
             <div>Статус Посылки</div>
          )}
