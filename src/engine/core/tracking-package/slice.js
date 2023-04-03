@@ -6,16 +6,19 @@ const trackingPackage = createSlice({
       items: JSON.parse(localStorage.getItem('data')) || [],
       loading: true,
       trackingNumber: localStorage.getItem('trackingNumber') || [],
+      deleteNumber: localStorage.getItem('deleteNumber') || [],
    },
    reducers: {
-      addItem: (state, action) => {
+      addItems: (state, action) => {
+         console.log([...state.items]);
          const item = action.payload;
          if (item.data.length === 0) {
             alert(item.errors.join());
             return;
          }
-         state.items = [...state.items, action.payload];
+         state.items = [...item.data, ...state.items];
          localStorage.setItem('data', JSON.stringify(state.items));
+         console.log('addItem');
       },
       addTrackingNumber: (state, action) => {
          state.trackingNumber = action.payload;
@@ -25,6 +28,7 @@ const trackingPackage = createSlice({
          );
       },
       checkItem: (state, action) => {
+         console.log('checkitem');
          state.trackingNumber = action.payload;
          localStorage.setItem(
             'trackingNumber',
@@ -32,15 +36,16 @@ const trackingPackage = createSlice({
          );
       },
       deleteItem: (state, action) => {
-         state.items = [...state.items, action.payload];
+         console.log('deleteNumber', action.payload);
+         const deleteNumber = action.payload;
+         state.items = state.items.filter(
+            (elem) => elem.Number !== deleteNumber
+         );
          localStorage.setItem('data', JSON.stringify(state.items));
-      },
-      setLoading: (state, action) => {
-         state.loading = action.payload;
       },
    },
 });
 
-export const { checkItem, setLoading, addItem, addTrackingNumber, deleteItem } =
+export const { checkItem, addItems, addTrackingNumber, deleteItem } =
    trackingPackage.actions;
 export const trackingPackageReducer = trackingPackage.reducer;

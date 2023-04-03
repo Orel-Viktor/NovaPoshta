@@ -20,12 +20,11 @@ export function TrackingInfo() {
    const currentTrackingNumber = useSelector(
       selectorsTrackingPackage.trackingNumber
    );
-   console.log(items);
-   const dataItems = items.map((elem) => elem.data).map((elem) => elem[0]);
-   console.log(dataItems);
 
-   const currentItem = dataItems.length
-      ? dataItems.find((data) => data.Number === currentTrackingNumber)
+   console.log(items);
+
+   const currentItem = items.length
+      ? items.find((data) => data.Number === currentTrackingNumber)
       : null;
    return (
       <>
