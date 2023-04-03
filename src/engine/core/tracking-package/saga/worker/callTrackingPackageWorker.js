@@ -9,5 +9,7 @@ export function* callTrackingPackageWorker(action) {
    const { payload } = action;
    const response = yield call(api.getInfo, payload.tracking, '380982094317');
    yield put(addTrackingNumber(payload.tracking));
-   yield put(addItem(response.data));
+   const data = response.data ? response.data : null;
+   console.log(response.data);
+   yield put(addItem(data));
 }

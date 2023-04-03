@@ -20,16 +20,18 @@ export function TrackingInfo() {
    const currentTrackingNumber = useSelector(
       selectorsTrackingPackage.trackingNumber
    );
+   console.log(items);
    const dataItems = items.map((elem) => elem.data).map((elem) => elem[0]);
    console.log(dataItems);
-   const selectedItem = dataItems.length
+
+   const currentItem = dataItems.length
       ? dataItems.find((data) => data.Number === currentTrackingNumber)
       : null;
    return (
       <>
          <Box component="h2">INFO</Box>
-         {selectedItem ? (
-            <TrackingInfoInner data={selectedItem}></TrackingInfoInner>
+         {currentItem ? (
+            <TrackingInfoInner data={currentItem}></TrackingInfoInner>
          ) : (
             <div>Статус Посылки</div>
          )}
