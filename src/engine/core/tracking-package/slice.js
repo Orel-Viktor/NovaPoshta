@@ -6,7 +6,7 @@ const trackingPackage = createSlice({
       items: JSON.parse(localStorage.getItem('data')) || [],
       loading: true,
       trackingNumber: localStorage.getItem('trackingNumber') || [],
-      deleteNumber: localStorage.getItem('deleteNumber') || [],
+      // deleteNumber: localStorage.getItem('deleteNumber') || [],
    },
    reducers: {
       addItems: (state, action) => {
