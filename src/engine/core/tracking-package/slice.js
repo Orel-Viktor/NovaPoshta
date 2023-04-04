@@ -12,6 +12,7 @@ const trackingPackage = createSlice({
       addItems: (state, action) => {
          console.log([...state.items]);
          const item = action.payload;
+         console.log(item);
          if (item.data.length === 0) {
             alert(item.errors.join());
             return;
