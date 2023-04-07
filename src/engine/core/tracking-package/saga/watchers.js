@@ -7,11 +7,11 @@ import {
    deleteTrackingItemAsync,
 } from './asyncActions';
 import { callTrackingPackageWorker } from './worker/callTrackingPackageWorker';
-import { callTrackingItemWorker } from './worker/callTrackingItemWorker';
+import { callTrackingCheckItemWorker } from './worker/callTrackingCheckItemWorker';
 import { callTrackingDeleteItemWorker } from './worker/callTrackingDeleteItemWorker';
 
 export function* trackingPackageWatcher() {
    yield takeEvery(getDataTrackingPackageAsync.type, callTrackingPackageWorker);
-   yield takeEvery(checkTrackingItemAsync.type, callTrackingItemWorker);
+   yield takeEvery(checkTrackingItemAsync.type, callTrackingCheckItemWorker);
    yield takeEvery(deleteTrackingItemAsync.type, callTrackingDeleteItemWorker);
 }

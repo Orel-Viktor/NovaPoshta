@@ -1,7 +1,8 @@
 // Core
 import React from 'react';
 import { Form, Field } from 'react-final-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectorsTrackingPackage } from '../../../engine/core/tracking-package/selectors';
 // Parts
 import { Grid, Box } from '@mui/material';
 // Components
@@ -9,8 +10,12 @@ import TextField from './TextField';
 import { Button } from '../Button';
 import { getDataTrackingPackageAsync } from '../../../engine/core/tracking-package/saga/asyncActions';
 
-export function TrakingForm() {
+export function TrackingForm() {
    const dispatch = useDispatch();
+   const currentTrackingNumber = useSelector(
+      selectorsTrackingPackage.trackingNumber
+   );
+
    const onValidate = (value) => {
       const errors = {};
       const regExpDigit = /^\d+$/;
@@ -31,6 +36,9 @@ export function TrakingForm() {
    return (
       <div>
          <Form
+            initialValues={{
+               tracking: currentTrackingNumber,
+            }}
             validate={onValidate}
             onSubmit={onSubmit}
             render={(formProps) => {

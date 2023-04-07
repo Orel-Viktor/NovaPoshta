@@ -17,12 +17,10 @@ function TrackingInfoInner(props) {
 
 export function TrackingInfo() {
    const items = useSelector(selectorsTrackingPackage.items);
+   console.log(items);
    const currentTrackingNumber = useSelector(
       selectorsTrackingPackage.trackingNumber
    );
-
-   console.log(items);
-
    const currentItem = items.length
       ? items.find((data) => data.Number === currentTrackingNumber)
       : null;

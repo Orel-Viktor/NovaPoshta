@@ -4,7 +4,7 @@ import { put } from 'redux-saga/effects';
 import { checkItem } from '../../slice';
 // Engine
 
-export function* callTrackingItemWorker(action) {
+export function* callTrackingCheckItemWorker(action) {
    const { payload } = action;
    console.log(payload);
    yield put(checkItem(payload));

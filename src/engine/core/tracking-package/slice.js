@@ -5,16 +5,23 @@ const trackingPackage = createSlice({
    initialState: {
       items: JSON.parse(localStorage.getItem('data')) || [],
       loading: true,
-      trackingNumber: localStorage.getItem('trackingNumber') || [],
-      // deleteNumber: localStorage.getItem('deleteNumber') || [],
+      trackingNumber: JSON.parse(localStorage.getItem('trackingNumber')) || [],
    },
    reducers: {
       addItems: (state, action) => {
-         console.log([...state.items]);
          const item = action.payload;
+         const itemData = item.data[0];
          console.log(item);
+         console.log(itemData);
          if (item.data.length === 0) {
             alert(item.errors.join());
+            return;
+         }
+         if (itemData.StatusCode === '3') {
+            alert(itemData.Status);
+            return;
+         }
+         if (state.items.find((elem) => elem.Number === state.trackingNumber)) {
             return;
          }
          state.items = [...item.data, ...state.items];
