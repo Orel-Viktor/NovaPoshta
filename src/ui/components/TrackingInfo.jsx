@@ -8,8 +8,17 @@ function TrackingInfoInner(props) {
    const { data } = props;
    return (
       <>
-         <Box sx={{ fontSize: '30px', color: 'primary.main' }}>
-            {data ? data.Status : <div>Некоректный номер накладной</div>}
+         <Box>
+            <Box sx={{ fontSize: '30px', color: 'primary.main' }}>
+               {data ? data.Status : <div>Некоректный номер накладной</div>}
+            </Box>
+            <Box>
+               {data.CounterpartySenderDescription ? (
+                  <div>Отправитель :{data.CounterpartySenderDescription}</div>
+               ) : (
+                  <div>Для подробностей введите номер телефона получателя</div>
+               )}
+            </Box>
          </Box>
       </>
    );
