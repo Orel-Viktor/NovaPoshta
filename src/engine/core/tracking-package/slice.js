@@ -9,6 +9,7 @@ const trackingPackage = createSlice({
    },
    reducers: {
       addItems: (state, action) => {
+         let nextItems = [...state.items];
          const item = action.payload;
          const itemData = item.data[0];
          if (item.data.length === 0) {
@@ -19,11 +20,12 @@ const trackingPackage = createSlice({
             alert(itemData.Status);
             return;
          }
-         if (state.items.find((elem) => elem.Number === state.trackingNumber)) {
-            return;
-         }
+         nextItems = nextItems.filter((elem) => {
+            console.log(elem.Number, ' ', state.trackingNumber);
+            return elem.Number !== state.trackingNumber;
+         });
 
-         state.items = [...item.data, ...state.items];
+         state.items = [...item.data, ...nextItems];
          localStorage.setItem('data', JSON.stringify(state.items));
          console.log('addItem');
       },
