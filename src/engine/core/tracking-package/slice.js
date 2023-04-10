@@ -22,6 +22,7 @@ const trackingPackage = createSlice({
          if (state.items.find((elem) => elem.Number === state.trackingNumber)) {
             return;
          }
+
          state.items = [...item.data, ...state.items];
          localStorage.setItem('data', JSON.stringify(state.items));
          console.log('addItem');

@@ -8,6 +8,7 @@ import { Container } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 // Parts
 import { Header } from '../components/Header';
+import { orange } from '@mui/material/colors';
 
 const theme = createTheme({
    palette: {
@@ -15,10 +16,11 @@ const theme = createTheme({
          main: '#00e676',
       },
       secondary: {
-         main: '#009688',
+         main: '#e65100',
+         info: '#08bb11',
       },
       custom: {
-         main: '#ff3d00',
+         main: orange,
       },
    },
 });

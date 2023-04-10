@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectorsTrackingPackage } from '../../../engine/core/tracking-package/selectors';
 // Parts
 import { Grid, Box } from '@mui/material';
+
 // Components
 import TextField from './TextField';
 import { Button } from '../Button';
@@ -63,6 +64,7 @@ export function TrackingForm() {
                         </Grid>
                         <Grid item={true} xs={4}>
                            <Field
+                              placeholder="380962700019"
                               name="phone"
                               label="phone"
                               component={TextField}

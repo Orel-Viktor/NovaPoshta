@@ -4,9 +4,10 @@ import React from 'react';
 import TextFieldMui from '@mui/material/TextField';
 
 export default function TextField(props) {
-   const { id, label, type, variant, input, meta } = props;
+   const { id, label, type, variant, input, meta, placeholder } = props;
    return (
       <TextFieldMui
+         placeholder={placeholder}
          {...input}
          error={Boolean(meta.error && meta.touched)}
          id={id}
