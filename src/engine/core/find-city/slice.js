@@ -3,14 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 const findCityDeparts = createSlice({
    name: 'findCityDeparts',
    initialState: {
-      city: [],
+      cityDeparts: [],
       numberDepart: [],
    },
    reducers: {
       findDepart: (state, action) => {
-         state.city = [action.payload];
+         state.cityDeparts = [action.payload.data];
       },
    },
 });
 export const { findDepart } = findCityDeparts.actions;
-export const findCityDepartsReducer = findCityDeparts.reduser;
+export const findCityDepartsReducer = findCityDeparts.reducer;

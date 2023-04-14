@@ -40,7 +40,7 @@ export const api = Object.freeze({
       const dataTracking = createDataTrackingPackage(number, phone);
       return instance.post('', dataTracking);
    },
-   getInfoDepart(city, numberDepart) {
+   getInfoDeparts(city, numberDepart) {
       const cityDeparts = createDataFindCity(city, numberDepart);
       return instance.post('', cityDeparts);
    },
