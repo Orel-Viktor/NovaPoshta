@@ -23,9 +23,25 @@ function createDataTrackingPackage(number, phone) {
       },
    };
 }
+
+function createDataFindCity(city, numberDepart) {
+   return {
+      apiKey: '0d34da9bdaf8f13a193c64e2170238ed',
+      modelName: 'Address',
+      calledMethod: 'getWarehouses',
+      methodProperties: {
+         CityName: city,
+         WarehouseId: numberDepart,
+      },
+   };
+}
 export const api = Object.freeze({
-   getInfo(number, phone) {
+   getInfoTracking(number, phone) {
       const dataTracking = createDataTrackingPackage(number, phone);
       return instance.post('', dataTracking);
+   },
+   getInfoDepart(city, numberDepart) {
+      const cityDeparts = createDataFindCity(city, numberDepart);
+      return instance.post('', cityDeparts);
    },
 });

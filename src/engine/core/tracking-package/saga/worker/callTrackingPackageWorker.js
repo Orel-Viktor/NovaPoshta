@@ -9,7 +9,11 @@ export function* callTrackingPackageWorker(action) {
    const { payload } = action;
    console.log(payload);
    console.log(payload.phone);
-   const response = yield call(api.getInfo, payload.tracking, payload.phone);
+   const response = yield call(
+      api.getInfoTracking,
+      payload.tracking,
+      payload.phone
+   );
    yield put(addTrackingNumber(payload.tracking));
    const data = response.data;
    yield put(addItems(data));
