@@ -14,6 +14,5 @@ export function* callDepartsWorker(action) {
    );
 
    const data = response.data;
-   console.log(data);
    yield put(findDepart(data));
 }

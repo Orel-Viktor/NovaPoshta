@@ -1,3 +1,3 @@
-export const selectorsfindCityDeparts = {
-   itmes: (state) => state.findCityDeparts.cityDeparts,
+export const selectorsFindCityDeparts = {
+   items: (state) => state.findCityDeparts.cityDeparts,
 };
