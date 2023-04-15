@@ -32,6 +32,8 @@ function createDataFindCity(city, numberDepart) {
       methodProperties: {
          CityName: city,
          WarehouseId: numberDepart,
+         // Page: '5',
+         // Limit: '40',
       },
    };
 }

@@ -9,14 +9,24 @@ function TrackingInfoInner(props) {
    return (
       <>
          <Box>
-            <Box sx={{ fontSize: '30px', color: 'primary.main' }}>
-               {data ? data.Status : <div>Некоректный номер накладной</div>}
+            <Box sx={{ fontSize: '20px', color: 'primary.main' }}>
+               {data ? (
+                  <>
+                     {' '}
+                     <div>{data.Status}</div>
+                  </>
+               ) : (
+                  <div>Некоректный номер накладной</div>
+               )}
             </Box>
-            <Box sx={{ fontSize: '20px' }}>
+            <Box sx={{ fontSize: '15px' }}>
                {data.CounterpartySenderDescription ? (
                   <Box sx={{ color: 'secondary.info' }}>
-                     Отправитель :{data.CounterpartySenderDescription}{' '}
-                     {data.WarehouseSender}
+                     <div>
+                        Отправитель :{data.CounterpartySenderDescription}{' '}
+                     </div>
+                     <div>Место отправки :{data.WarehouseSender}</div>
+                     <div>Место прибытия :{data.RecipientAddress}</div>
                   </Box>
                ) : (
                   <Box sx={{ color: 'secondary.main' }}>

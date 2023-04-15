@@ -6,7 +6,6 @@ import { selectorsFindCityDeparts } from '../../engine/core/find-city/selectors'
 
 function DepartsInfoInner(props) {
    const { data } = props;
-   console.log(data);
    return data.length ? (
       <Box component="div" sx={{ fontSize: '30px', color: 'primary.main' }}>
          <Box component="div">
@@ -34,7 +33,6 @@ function DepartsInfoInner(props) {
 
 export function DepartsInfo() {
    const items = useSelector(selectorsFindCityDeparts.items);
-   console.log(items);
    return (
       <Box component="div">
          <Box component="h2">Отделения</Box>

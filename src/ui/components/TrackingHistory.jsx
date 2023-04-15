@@ -63,13 +63,16 @@ export function TrackingHistory() {
          {items.length ? (
             items.map((data, id) => {
                return (
-                  <div key={data.Number + id}>
+                  <Box
+                     sx={{ display: 'flex', justifyContent: 'center' }}
+                     key={data.Number + id}
+                  >
                      <TrackingHistoryInner
                         onClick={() => checkItem(data.Number)}
                         data={data}
                      />
                      <DelButton onClick={() => deleteItem(data.Number)} />
-                  </div>
+                  </Box>
                );
             })
          ) : (
