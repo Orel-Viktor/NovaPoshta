@@ -5,51 +5,15 @@ import { useSelector } from 'react-redux';
 import { selectorsFindCityDeparts } from '../../engine/core/find-city/selectors';
 // Components
 import { LoaderLinear } from './_Helpers/Loader';
-// Parts
-import VirtualScroll from 'react-dynamic-virtual-scroll';
-import '../../../styles/App.css';
 
 function DepartsInfoInner(props) {
    const { data } = props;
-   const dataDeparts = data.map((elem, id) => {
-      return (
-         <Box
-            sx={{ fontSize: '15px', color: 'secondary.info' }}
-            component="div"
-            key={elem + id}
-         >
-            <Box
-               sx={{
-                  boxShadow:
-                     'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px',
-               }}
-            >
-               {elem.Description}
-            </Box>
-         </Box>
-      );
-   });
-
-   const renderItem = React.useCallback(() => {
-      return (
-         <Box className="List-item">
-            <div>{dataDeparts}</div>
-         </Box>
-      );
-   }, []);
    return data.length ? (
       <Box component="div" sx={{ fontSize: '30px', color: 'primary.main' }}>
          <Box component="div">
             Місто :{data.map((elem) => elem.CityDescription).slice(0, 1)}
          </Box>
-         <VirtualScroll
-            className="List"
-            minItemHeight={40}
-            totalLength={dataDeparts.length}
-            renderItem={renderItem}
-         />
-
-         {/* {data.map((elem, id) => {
+         {data.map((elem, id) => {
             return (
                <Box
                   sx={{ fontSize: '15px', color: 'secondary.info' }}
@@ -66,7 +30,7 @@ function DepartsInfoInner(props) {
                   </Box>
                </Box>
             );
-         })} */}
+         })}
       </Box>
    ) : (
       <Box sx={{ fontSize: '15px', color: 'secondary.main' }}>
