@@ -7,8 +7,6 @@ import { addItems, addTrackingNumber } from '../../slice';
 import { api } from '../../../../config/axios';
 export function* callTrackingPackageWorker(action) {
    const { payload } = action;
-   console.log(payload);
-   console.log(payload.phone);
    const response = yield call(
       api.getInfoTracking,
       payload.tracking,

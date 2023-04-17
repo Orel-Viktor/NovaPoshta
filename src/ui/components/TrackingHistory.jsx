@@ -13,12 +13,7 @@ import { styled } from '@mui/system';
 import { Button } from './Button';
 import IconDelete from './_Icons/IconDelete.jsx';
 
-const Wrapper = styled(Box)({
-   display: 'flex',
-   padding: '8px',
-   justifyContent: 'space-between',
-   alignItems: 'center,',
-});
+const Wrapper = styled(Box)({});
 
 function DelButton(props) {
    const { onClick } = props;
@@ -36,9 +31,13 @@ function TrackingHistoryInner(props) {
       <Wrapper>
          <Box
             onClick={onClick}
-            sx={{ fontSize: '30px', color: 'primary.main' }}
+            sx={{
+               fontSize: '30px',
+               color: 'primary.main',
+               marginRight: '10px',
+            }}
          >
-            {data ? data.Number : <div>Данные отсутсвуют</div>}
+            {data ? data.Number : <div>Дані відсутні</div>}
          </Box>
       </Wrapper>
    );
@@ -53,18 +52,21 @@ export function TrackingHistory() {
    };
 
    const deleteItem = (clickedTrackingNumber) => {
-      console.log(clickedTrackingNumber);
       dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
    };
 
    return (
       <>
-         <Box component="h2">Текущие накладные</Box>
+         <Box component="h2">Поточні ТТН</Box>
          {items.length ? (
             items.map((data, id) => {
                return (
                   <Box
-                     sx={{ display: 'flex', justifyContent: 'center' }}
+                     sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        marginBottom: '10px',
+                     }}
                      key={data.Number + id}
                   >
                      <TrackingHistoryInner

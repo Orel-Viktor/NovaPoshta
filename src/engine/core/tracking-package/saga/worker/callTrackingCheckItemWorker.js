@@ -6,6 +6,5 @@ import { checkItem } from '../../slice';
 
 export function* callTrackingCheckItemWorker(action) {
    const { payload } = action;
-   console.log(payload);
    yield put(checkItem(payload));
 }

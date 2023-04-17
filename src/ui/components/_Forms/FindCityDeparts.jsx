@@ -26,7 +26,7 @@ export function FindCityDeparts() {
    };
 
    return (
-      <Box component="div">
+      <Box sx={{ marginBottom: '20px' }} component="div">
          <Form
             validate={onValidate}
             onSubmit={onSubmit}

@@ -21,13 +21,11 @@ const trackingPackage = createSlice({
             return;
          }
          nextItems = nextItems.filter((elem) => {
-            console.log(elem.Number, ' ', state.trackingNumber);
             return elem.Number !== state.trackingNumber;
          });
 
          state.items = [...item.data, ...nextItems];
          localStorage.setItem('data', JSON.stringify(state.items));
-         console.log('addItem');
       },
       addTrackingNumber: (state, action) => {
          state.trackingNumber = action.payload;
@@ -37,7 +35,6 @@ const trackingPackage = createSlice({
          );
       },
       checkItem: (state, action) => {
-         console.log('checkitem');
          state.trackingNumber = action.payload;
          localStorage.setItem(
             'trackingNumber',
@@ -45,7 +42,6 @@ const trackingPackage = createSlice({
          );
       },
       deleteItem: (state, action) => {
-         console.log('deleteNumber', action.payload);
          const deleteNumber = action.payload;
          state.items = state.items.filter(
             (elem) => elem.Number !== deleteNumber

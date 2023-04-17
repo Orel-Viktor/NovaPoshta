@@ -9,28 +9,41 @@ function TrackingInfoInner(props) {
    return (
       <>
          <Box>
-            <Box sx={{ fontSize: '20px', color: 'primary.main' }}>
+            <Box
+               sx={{
+                  fontSize: '20px',
+                  color: 'primary.main',
+                  marginBottom: '5px',
+               }}
+            >
                {data ? (
                   <>
                      {' '}
                      <div>{data.Status}</div>
                   </>
                ) : (
-                  <div>Некоректный номер накладной</div>
+                  <div>Некоректний номер накладної</div>
                )}
             </Box>
             <Box sx={{ fontSize: '15px' }}>
                {data.CounterpartySenderDescription ? (
-                  <Box sx={{ color: 'secondary.info' }}>
+                  <Box
+                     sx={{
+                        color: 'secondary.info',
+                        padding: '10px',
+                        boxShadow:
+                           'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px',
+                     }}
+                  >
                      <div>
-                        Отправитель :{data.CounterpartySenderDescription}{' '}
+                        Відправник :{data.CounterpartySenderDescription}{' '}
                      </div>
-                     <div>Место отправки :{data.WarehouseSender}</div>
-                     <div>Место прибытия :{data.RecipientAddress}</div>
+                     <div>Місто відправлення :{data.WarehouseSender}</div>
+                     <div>Місто прибуття :{data.RecipientAddress}</div>
                   </Box>
                ) : (
                   <Box sx={{ color: 'secondary.main' }}>
-                     Для подробностей введите номер телефона получателя
+                     Для подробиць введіть номер телефону отримувача
                   </Box>
                )}
             </Box>
@@ -41,7 +54,6 @@ function TrackingInfoInner(props) {
 
 export function TrackingInfo() {
    const items = useSelector(selectorsTrackingPackage.items);
-   console.log(items);
    const currentTrackingNumber = useSelector(
       selectorsTrackingPackage.trackingNumber
    );
@@ -50,7 +62,7 @@ export function TrackingInfo() {
       : null;
    return (
       <>
-         <Box component="h2">INFO</Box>
+         <Box component="h2">Інформація за ТТН</Box>
          {currentItem ? (
             <TrackingInfoInner data={currentItem}></TrackingInfoInner>
          ) : (

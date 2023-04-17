@@ -3,39 +3,86 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectorsFindCityDeparts } from '../../engine/core/find-city/selectors';
+// Components
+import { LoaderLinear } from './_Helpers/Loader';
+// Parts
+import VirtualScroll from 'react-dynamic-virtual-scroll';
+import '../../../styles/App.css';
 
 function DepartsInfoInner(props) {
    const { data } = props;
+   const dataDeparts = data.map((elem, id) => {
+      return (
+         <Box
+            sx={{ fontSize: '15px', color: 'secondary.info' }}
+            component="div"
+            key={elem + id}
+         >
+            <Box
+               sx={{
+                  boxShadow:
+                     'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px',
+               }}
+            >
+               {elem.Description}
+            </Box>
+         </Box>
+      );
+   });
+
+   const renderItem = React.useCallback(() => {
+      return (
+         <Box className="List-item">
+            <div>{dataDeparts}</div>
+         </Box>
+      );
+   }, []);
    return data.length ? (
       <Box component="div" sx={{ fontSize: '30px', color: 'primary.main' }}>
          <Box component="div">
-            Отделения города :
-            {data.map((elem) => elem.CityDescription).slice(0, 1)}
+            Місто :{data.map((elem) => elem.CityDescription).slice(0, 1)}
          </Box>
-         {data.map((elem, id) => {
+         <VirtualScroll
+            className="List"
+            minItemHeight={40}
+            totalLength={dataDeparts.length}
+            renderItem={renderItem}
+         />
+
+         {/* {data.map((elem, id) => {
             return (
                <Box
                   sx={{ fontSize: '15px', color: 'secondary.info' }}
                   component="div"
                   key={elem + id}
                >
-                  <Box>{elem.Description}</Box>
+                  <Box
+                     sx={{
+                        boxShadow:
+                           'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px',
+                     }}
+                  >
+                     {elem.Description}
+                  </Box>
                </Box>
             );
-         })}
+         })} */}
       </Box>
    ) : (
       <Box sx={{ fontSize: '15px', color: 'secondary.main' }}>
-         Отделения с таким номером в этом городе нет
+         Відділеня не знайдено
       </Box>
    );
 }
 
 export function DepartsInfo() {
    const items = useSelector(selectorsFindCityDeparts.items);
-   return (
+   const loading = useSelector(selectorsFindCityDeparts.loading);
+   return loading ? (
+      <LoaderLinear />
+   ) : (
       <Box component="div">
-         <Box component="h2">Отделения</Box>
+         <Box component="h2">Відділеня</Box>
          {items.length ? (
             items.map((data, id) => {
                return (
@@ -43,7 +90,7 @@ export function DepartsInfo() {
                );
             })
          ) : (
-            <div>Список отделений</div>
+            <div>Список відділень</div>
          )}
       </Box>
    );
