@@ -9,7 +9,7 @@ import { Grid, Box } from '@mui/material';
 // Components
 import TextField from './TextField';
 import { Button } from '../Button';
-// Engine
+
 import { getDataTrackingPackageAsync } from '../../../engine/core/tracking-package/saga/asyncActions';
 
 export function TrackingForm() {
@@ -24,7 +24,8 @@ export function TrackingForm() {
       if (value.tracking === undefined) {
          errors.tracking = 'Введите значние';
       } else if (!regExpDigit.test(value.tracking)) {
-         errors.tracking = 'допускаются только числа';
+         errors.tracking =
+            'допускаются только числа,возможно в поле есть пробелы';
       } else if (value.tracking.length < 14) {
          errors.tracking = 'вы ввели меньше 14 цифр';
       } else if (value.tracking.length > 14) {

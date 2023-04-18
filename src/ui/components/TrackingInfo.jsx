@@ -66,7 +66,7 @@ export function TrackingInfo() {
          {currentItem ? (
             <TrackingInfoInner data={currentItem}></TrackingInfoInner>
          ) : (
-            <div>Статус Посылки</div>
+            <div>Статус Відправлення</div>
          )}
       </>
    );

@@ -26,7 +26,6 @@ function DelButton(props) {
 
 function TrackingHistoryInner(props) {
    const { data, onClick } = props;
-
    return (
       <Wrapper>
          <Box
@@ -50,11 +49,9 @@ export function TrackingHistory() {
    const checkItem = (clickedTrackingNumber) => {
       dispatch(checkTrackingItemAsync(clickedTrackingNumber));
    };
-
    const deleteItem = (clickedTrackingNumber) => {
       dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
    };
-
    return (
       <>
          <Box component="h2">Поточні ТТН</Box>

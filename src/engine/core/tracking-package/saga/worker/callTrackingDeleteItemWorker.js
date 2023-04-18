@@ -1,8 +1,5 @@
 // Core
 import { put } from 'redux-saga/effects';
-
-// import { useSelector } from 'react-redux';
-// import { selectorsTrackingPackage } from '../../selectors';
 // Parts
 import { deleteItem } from '../../slice';
 

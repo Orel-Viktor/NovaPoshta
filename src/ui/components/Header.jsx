@@ -25,8 +25,8 @@ export function Header() {
             API NovaPoshta
          </Box>
          <Stack spacing={2} direction="row">
-            <Button to={routes.home}>Traking</Button>
-            <Button to={routes.admissionsList}>AdmissionsList</Button>
+            <Button to={routes.home}>Знайти посилку</Button>
+            <Button to={routes.admissionsList}>Знайти відділення</Button>
          </Stack>
       </Wrapper>
    );

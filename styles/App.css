@@ -5,38 +5,6 @@
    text-align: center;
 }
 
-.logo {
-   height: 6em;
-   padding: 1.5em;
-   will-change: filter;
-   transition: filter 300ms;
-}
-.logo:hover {
-   filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-   filter: drop-shadow(0 0 2em #61dafbaa);
-}
-.List {
-   display: flex;
-   flex-direction: column;
-   height: 600px;
-   width: 400px;
-   background: cyan;
-   overflow: scroll;
-   border: 2px solid black;
-   box-sizing: border-box;
-}
-
-.List-item {
-   box-sizing: border-box;
-   display: flex;
-   align-items: center;
-   flex-shrink: 0;
-   margin: 0;
-   padding: 5px;
-   overflow: hidden;
-}
 @keyframes logo-spin {
    from {
       transform: rotate(0deg);
