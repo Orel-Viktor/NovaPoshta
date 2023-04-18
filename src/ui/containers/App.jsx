@@ -2,6 +2,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { HistoryRouter } from 'redux-first-history/rr6';
+
 // Components
 import { Layout } from './Layout';
 // Parts

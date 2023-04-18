@@ -19,6 +19,7 @@ export function Header() {
    return (
       <Wrapper component="header">
          <Box
+            className="mobile-text"
             component="div"
             sx={{ marginRight: '20px', color: 'custom.main' }}
          >

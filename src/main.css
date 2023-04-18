@@ -69,3 +69,31 @@ button:focus-visible {
       background-color: #f9f9f9;
    }
 }
+
+@media screen and (max-width: 600px) {
+   a {
+      font-size: 12px;
+   }
+   .mobile-text {
+      font-size: 14px;
+   }
+   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.mobile-input {
+      font-size: 14px;
+   }
+}
+
+@media screen and (max-width: 500px) {
+   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.mobile-input {
+      font-size: 12px;
+   }
+}
+@media screen and (max-width: 400px) {
+   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.mobile-input {
+      font-size: 11px;
+   }
+}
+/* @media screen and (max-width: 300px) {
+   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.mobile-input {
+      font-size: 11px;
+   }
+} */

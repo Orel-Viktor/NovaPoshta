@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Container } from '@mui/material';
 import { Outlet } from 'react-router-dom';
+
 // Parts
 import { Header } from '../components/Header';
 import { orange } from '@mui/material/colors';
