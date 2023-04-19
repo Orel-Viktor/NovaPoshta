@@ -31,6 +31,7 @@ function TrackingHistoryInner(props) {
          <Box
             onClick={onClick}
             sx={{
+               cursor: 'pointer',
                fontSize: '30px',
                color: 'primary.main',
                marginRight: '10px',
