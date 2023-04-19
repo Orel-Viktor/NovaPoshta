@@ -10,21 +10,14 @@ import { routes } from '../../engine/config/routers';
 
 const Wrapper = styled(Box)({
    display: 'flex',
-   padding: '24px',
+   padding: '20px',
    justifyContent: 'space-between',
    alignItems: 'center,',
 });
 
 export function Header() {
    return (
-      <Wrapper component="header">
-         <Box
-            className="mobile-text"
-            component="div"
-            sx={{ marginRight: '20px', color: 'custom.main' }}
-         >
-            API NovaPoshta
-         </Box>
+      <Wrapper className="mobile-header" component="header">
          <Stack spacing={2} direction="row">
             <Button to={routes.home}>Знайти посилку</Button>
             <Button to={routes.admissionsList}>Знайти відділення</Button>

@@ -69,31 +69,117 @@ button:focus-visible {
       background-color: #f9f9f9;
    }
 }
-
 @media screen and (max-width: 600px) {
    a {
       font-size: 12px;
    }
-   .mobile-text {
-      font-size: 14px;
-   }
-   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.mobile-input {
-      font-size: 14px;
+   /* SCROLLING */
+   .css-mgur8 {
+      bottom: 0;
+      top: 485px;
    }
 }
 
-@media screen and (max-width: 500px) {
-   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.mobile-input {
-      font-size: 12px;
-   }
+/* //////////////////////HEADER /////////////////////*/
+.custom-gradient,
+body {
+   background: -webkit-linear-gradient(
+         45deg,
+         hsla(262, 99%, 50%, 1) 0%,
+         hsla(262, 99%, 50%, 0) 70%
+      ),
+      -webkit-linear-gradient(315deg, hsla(234, 94%, 45%, 1) 10%, hsla(
+                  234,
+                  94%,
+                  45%,
+                  0
+               )
+               80%),
+      -webkit-linear-gradient(225deg, hsla(286, 94%, 48%, 1) 10%, hsla(
+                  286,
+                  94%,
+                  48%,
+                  0
+               )
+               80%),
+      -webkit-linear-gradient(135deg, hsla(335, 97%, 41%, 1) 100%, hsla(
+                  335,
+                  97%,
+                  41%,
+                  0
+               )
+               70%);
+   background: linear-gradient(
+         45deg,
+         hsla(262, 99%, 50%, 1) 0%,
+         hsla(262, 99%, 50%, 0) 70%
+      ),
+      linear-gradient(
+         135deg,
+         hsla(234, 94%, 45%, 1) 10%,
+         hsla(234, 94%, 45%, 0) 80%
+      ),
+      linear-gradient(
+         225deg,
+         hsla(286, 94%, 48%, 1) 10%,
+         hsla(286, 94%, 48%, 0) 80%
+      ),
+      linear-gradient(
+         315deg,
+         hsla(335, 97%, 41%, 1) 100%,
+         hsla(335, 97%, 41%, 0) 70%
+      );
 }
-@media screen and (max-width: 400px) {
-   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.mobile-input {
-      font-size: 11px;
-   }
+.text-gradient {
+   background-color: #2aa5a0;
+
+   background: -webkit-linear-gradient(
+         45deg,
+         hsla(162, 100%, 50%, 1) 0%,
+         hsla(162, 100%, 50%, 0) 70%
+      ),
+      -webkit-linear-gradient(315deg, hsla(200, 95%, 45%, 1) 10%, hsla(
+                  200,
+                  95%,
+                  45%,
+                  0
+               )
+               80%),
+      -webkit-linear-gradient(225deg, hsla(312, 94%, 45%, 1) 10%, hsla(
+                  312,
+                  94%,
+                  45%,
+                  0
+               )
+               80%),
+      -webkit-linear-gradient(135deg, hsla(317, 93%, 49%, 1) 100%, hsla(
+                  317,
+                  93%,
+                  49%,
+                  0
+               )
+               70%);
+   background: linear-gradient(
+         45deg,
+         hsla(162, 100%, 50%, 1) 0%,
+         hsla(162, 100%, 50%, 0) 70%
+      ),
+      linear-gradient(
+         135deg,
+         hsla(200, 95%, 45%, 1) 10%,
+         hsla(200, 95%, 45%, 0) 80%
+      ),
+      linear-gradient(
+         225deg,
+         hsla(312, 94%, 45%, 1) 10%,
+         hsla(312, 94%, 45%, 0) 80%
+      ),
+      linear-gradient(
+         315deg,
+         hsla(317, 93%, 49%, 1) 100%,
+         hsla(317, 93%, 49%, 0) 70%
+      );
+
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
 }
-/* @media screen and (max-width: 300px) {
-   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.mobile-input {
-      font-size: 11px;
-   }
-} */

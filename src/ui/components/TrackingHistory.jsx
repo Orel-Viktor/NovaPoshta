@@ -54,7 +54,9 @@ export function TrackingHistory() {
    };
    return (
       <>
-         <Box component="h2">Поточні ТТН</Box>
+         <Box className="text-gradient" component="h2">
+            Поточні ТТН
+         </Box>
          {items.length ? (
             items.map((data, id) => {
                return (

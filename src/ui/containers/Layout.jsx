@@ -96,7 +96,7 @@ export function Layout() {
                <React.Fragment>
                   <CssBaseline />
                   <HideOnScroll>
-                     <AppBar>
+                     <AppBar className="custom-gradient">
                         <Toolbar sx={{ margin: '0 auto' }}>
                            <Typography variant="h6" component="div">
                               <Header />

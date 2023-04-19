@@ -4,3 +4,4 @@ import App from './ui/containers/App';
 import './main.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+// document.getElementById('root').classList.add('custom-gradient');
