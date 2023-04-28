@@ -92,7 +92,7 @@ export function Layout() {
    return (
       <Provider store={store}>
          <ThemeProvider theme={theme}>
-            <Container>
+            <Container className="root custom-container">
                <React.Fragment>
                   <CssBaseline />
                   <HideOnScroll>

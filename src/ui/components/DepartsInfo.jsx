@@ -46,7 +46,7 @@ export function DepartsInfo() {
       <LoaderLinear />
    ) : (
       <Box component="div">
-         <Box className="text-gradient" component="h2">
+         <Box className="root text-gradient" component="h2">
             Відділеня
          </Box>
          {items.length ? (

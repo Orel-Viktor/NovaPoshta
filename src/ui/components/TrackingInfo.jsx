@@ -62,7 +62,7 @@ export function TrackingInfo() {
       : null;
    return (
       <>
-         <Box className="text-gradient" component="h2">
+         <Box className="root text-gradient" component="h2">
             Інформація за ТТН
          </Box>
          {currentItem ? (

@@ -11,9 +11,9 @@
 
 /* MUI CONTAINER */
 
-.css-1qsxih2,
-.css-1oqqzyl-MuiContainer-root {
+.root.custom-container {
    padding-top: 40px;
+   padding-left: 50px;
 }
 
 @keyframes logo-spin {

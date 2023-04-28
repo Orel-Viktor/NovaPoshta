@@ -1,11 +1,5 @@
 @media screen and (max-width: 600px) {
-   .mobile-text {
-      font-size: 14px;
-   }
-   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input.mobile-input {
-      font-size: 14px;
-   }
-   .css-1qeux4g.mobile-header {
+   .root.mobile-header {
       padding: 6px;
    }
 }

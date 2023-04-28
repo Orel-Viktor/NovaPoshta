@@ -55,7 +55,7 @@ export function TrackingHistory() {
    };
    return (
       <>
-         <Box className="text-gradient" component="h2">
+         <Box className="root text-gradient" component="h2">
             Поточні ТТН
          </Box>
          {items.length ? (
