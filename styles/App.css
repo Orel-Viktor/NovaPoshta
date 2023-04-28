@@ -9,6 +9,12 @@
    text-align: center;
 }
 
+/* MUI CONTAINER */
+
+.css-1oqqzyl-MuiContainer-root {
+   padding-top: 40px;
+}
+
 @keyframes logo-spin {
    from {
       transform: rotate(0deg);
