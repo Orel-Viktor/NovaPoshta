@@ -33,8 +33,10 @@ export function TrackingForm() {
       }
       return errors;
    };
-   const onSubmit = (values) => {
+   const onSubmit = (values, formApi) => {
+      const { reset } = formApi;
       dispatch(getDataTrackingPackageAsync(values));
+      reset();
    };
    return (
       <div>
