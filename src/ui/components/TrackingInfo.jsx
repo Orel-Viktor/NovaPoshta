@@ -3,6 +3,8 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectorsTrackingPackage } from '../../engine/core/tracking-package/selectors';
+// Components
+import { LoaderLinear } from './_Helpers/Loader';
 
 function TrackingInfoInner(props) {
    const { data } = props;
@@ -26,7 +28,7 @@ function TrackingInfoInner(props) {
                )}
             </Box>
             <Box sx={{ fontSize: '15px' }}>
-               {data.CounterpartySenderDescription ? (
+               {data.PhoneRecipient || data.PhoneSender ? (
                   <Box
                      sx={{
                         color: 'secondary.info',
@@ -36,9 +38,15 @@ function TrackingInfoInner(props) {
                      }}
                   >
                      <div>
-                        Відправник :{data.CounterpartySenderDescription}{' '}
+                        Відправник :
+                        {data.CounterpartySenderDescription ||
+                           data.CounterpartyRecipientDescription}
                      </div>
-                     <div>Місто відправлення :{data.WarehouseSender}</div>
+                     <div>Отримувач :{data.RecipientFullName} </div>
+                     <div>
+                        Місто відправлення :
+                        {data.SenderAddress || data.WarehouseSender}
+                     </div>
                      <div>Місто прибуття :{data.RecipientAddress}</div>
                   </Box>
                ) : (
@@ -57,10 +65,13 @@ export function TrackingInfo() {
    const currentTrackingNumber = useSelector(
       selectorsTrackingPackage.trackingNumber
    );
+   const loading = useSelector(selectorsTrackingPackage.loading);
    const currentItem = items.length
       ? items.find((data) => data.Number === currentTrackingNumber)
       : null;
-   return (
+   return loading ? (
+      <LoaderLinear />
+   ) : (
       <>
          <Box className="root text-gradient" component="h2">
             Інформація за ТТН
