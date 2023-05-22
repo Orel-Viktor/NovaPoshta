@@ -2,7 +2,7 @@
 
 @import './Forms/input.css';
 @import './Tracking/tracking.css';
-@import './Adaptive/header.css';
+/* @import './Adaptive/header.css'; */
 
 #root {
    max-width: 1280px;
