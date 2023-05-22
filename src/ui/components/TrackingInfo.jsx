@@ -44,7 +44,9 @@ function TrackingInfoInner(props) {
                      </div>
                      <div>
                         <Box className="text-gradient">Отримувач :</Box>
-                        {data.RecipientFullName}{' '}
+                        {data.RecipientFullName
+                           ? data.RecipientFullName
+                           : data.RecipientFullNameEW}{' '}
                      </div>
                      <div>
                         <Box className="text-gradient">
