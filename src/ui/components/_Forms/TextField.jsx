@@ -7,7 +7,10 @@ export default function TextField(props) {
    const { id, label, type, variant, input, meta, placeholder } = props;
    return (
       <TextFieldMui
-         inputProps={{ className: 'root mobile-input' }}
+         InputProps={{
+            sx: { borderRadius: '40px', overflow: 'hidden' },
+            className: 'root mobile-input custom-input',
+         }}
          placeholder={placeholder}
          {...input}
          error={Boolean(meta.error && meta.touched)}

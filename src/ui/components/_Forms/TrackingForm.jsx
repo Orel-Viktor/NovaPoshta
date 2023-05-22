@@ -49,7 +49,11 @@ export function TrackingForm() {
             render={(formProps) => {
                const { handleSubmit, valid } = formProps;
                return (
-                  <Box component="form" onSubmit={handleSubmit}>
+                  <Box
+                     sx={{ marginBottom: '80px' }}
+                     component="form"
+                     onSubmit={handleSubmit}
+                  >
                      <Grid
                         spacing={2}
                         sx={{
@@ -59,7 +63,7 @@ export function TrackingForm() {
                         }}
                         container
                      >
-                        <Grid item={true} xs={5}>
+                        <Grid item={true} xs={5} sx={{ color: 'red' }}>
                            <Field
                               name="tracking"
                               label="traking"

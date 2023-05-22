@@ -29,6 +29,7 @@ function TrackingHistoryInner(props) {
    return (
       <Wrapper>
          <Box
+            className="tracking tracking-history root"
             onClick={onClick}
             sx={{
                cursor: 'pointer',
@@ -54,7 +55,7 @@ export function TrackingHistory() {
       dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
    };
    return (
-      <>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
          <Box className="root text-gradient" component="h2">
             Поточні ТТН
          </Box>
@@ -80,6 +81,6 @@ export function TrackingHistory() {
          ) : (
             <div>History</div>
          )}
-      </>
+      </Box>
    );
 }

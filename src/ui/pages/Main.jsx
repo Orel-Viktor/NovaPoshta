@@ -10,8 +10,10 @@ export function Main() {
    return (
       <Box component="div">
          <TrackingForm />
-         <TrackingInfo />
-         <TrackingHistory />
+         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <TrackingInfo />
+            <TrackingHistory />
+         </Box>
       </Box>
    );
 }

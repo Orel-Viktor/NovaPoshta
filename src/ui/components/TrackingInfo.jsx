@@ -10,7 +10,7 @@ function TrackingInfoInner(props) {
    const { data } = props;
    return (
       <>
-         <Box>
+         <Box className="tracking" sx={{ margin: '0 0 40px 0' }}>
             <Box
                sx={{
                   fontSize: '20px',
@@ -38,16 +38,27 @@ function TrackingInfoInner(props) {
                      }}
                   >
                      <div>
-                        Відправник :
+                        <Box className="text-gradient">Відправник :</Box>
                         {data.CounterpartySenderDescription ||
                            data.CounterpartyRecipientDescription}
                      </div>
-                     <div>Отримувач :{data.RecipientFullName} </div>
                      <div>
-                        Місто відправлення :
+                        <Box className="text-gradient">Отримувач :</Box>
+                        {data.RecipientFullName}{' '}
+                     </div>
+                     <div>
+                        <Box className="text-gradient">
+                           Місто відправлення :
+                        </Box>
                         {data.SenderAddress || data.WarehouseSender}
                      </div>
-                     <div>Місто прибуття :{data.RecipientAddress}</div>
+                     <div>
+                        {' '}
+                        <Box className="text-gradient">
+                           Місто прибуття :
+                        </Box>{' '}
+                        {data.RecipientAddress}
+                     </div>
                   </Box>
                ) : (
                   <Box sx={{ color: 'secondary.main' }}>
@@ -72,7 +83,9 @@ export function TrackingInfo() {
    return loading ? (
       <LoaderLinear />
    ) : (
-      <>
+      <Box
+         sx={{ display: 'flex', flexDirection: 'column', margin: '0 80px 0 0' }}
+      >
          <Box className="root text-gradient" component="h2">
             Інформація за ТТН
          </Box>
@@ -81,6 +94,6 @@ export function TrackingInfo() {
          ) : (
             <div>Статус Відправлення</div>
          )}
-      </>
+      </Box>
    );
 }

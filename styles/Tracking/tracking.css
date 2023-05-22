@@ -1,0 +1,10 @@
+/* //////////////////////TRACKING INFO////////////////// */
+.tracking {
+   -webkit-box-shadow: 0 2px 15px 4px rgba(92, 214, 107, 1);
+   -moz-box-shadow: 0 2px 15px 4px rgba(92, 214, 107, 1);
+   box-shadow: 0 2px 15px 4px rgba(92, 214, 107, 1);
+   padding: 5px;
+}
+.root.tracking-history {
+   font-size: 20px;
+}
