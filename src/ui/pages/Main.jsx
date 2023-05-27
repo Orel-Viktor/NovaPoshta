@@ -10,7 +10,10 @@ export function Main() {
    return (
       <Box component="div">
          <TrackingForm />
-         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+         <Box
+            className="root tracking-mobile "
+            sx={{ display: 'flex', justifyContent: 'space-between' }}
+         >
             <TrackingInfo />
             <TrackingHistory />
          </Box>

@@ -10,7 +10,7 @@ function TrackingInfoInner(props) {
    const { data } = props;
    return (
       <>
-         <Box className="tracking" sx={{ margin: '0 0 40px 0' }}>
+         <Box className=" tracking-inner tracking">
             <Box
                sx={{
                   fontSize: '20px',
@@ -85,9 +85,7 @@ export function TrackingInfo() {
    return loading ? (
       <LoaderLinear />
    ) : (
-      <Box
-         sx={{ display: 'flex', flexDirection: 'column', margin: '0 80px 0 0' }}
-      >
+      <Box>
          <Box className="root text-gradient" component="h2">
             Інформація за ТТН
          </Box>

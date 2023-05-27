@@ -63,7 +63,7 @@ export function TrackingForm() {
                         }}
                         container
                      >
-                        <Grid item={true} xs={5} sx={{ color: 'red' }}>
+                        <Grid item={true} xs={5}>
                            <Field
                               name="tracking"
                               label="traking"
