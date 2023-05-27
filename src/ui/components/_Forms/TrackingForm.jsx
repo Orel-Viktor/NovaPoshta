@@ -79,7 +79,16 @@ export function TrackingForm() {
                            />
                         </Grid>
                         <Grid item={true} xs={3}>
-                           <Button type="submit" xs={4} disabled={!valid}>
+                           <Button
+                              className={
+                                 !valid
+                                    ? '  custom-button-shadow root button-shadow'
+                                    : null
+                              }
+                              type="submit"
+                              xs={4}
+                              disabled={!valid}
+                           >
                               Send
                            </Button>
                         </Grid>

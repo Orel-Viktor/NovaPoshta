@@ -1,5 +1,6 @@
 /* //////////////////////TRACKING INFO////////////////// */
-.tracking {
+.tracking,
+.root.button-shadow.custom-button-shadow {
    -webkit-box-shadow: 0 2px 15px 4px rgba(92, 214, 107, 1);
    -moz-box-shadow: 0 2px 15px 4px rgba(92, 214, 107, 1);
    box-shadow: 0 2px 15px 4px rgba(92, 214, 107, 1);

@@ -92,7 +92,7 @@ export function TrackingInfo() {
          {currentItem ? (
             <TrackingInfoInner data={currentItem}></TrackingInfoInner>
          ) : (
-            <div>Статус Відправлення</div>
+            <Box sx={{ color: 'secondary.main' }}>Статус Відправлення</Box>
          )}
       </Box>
    );

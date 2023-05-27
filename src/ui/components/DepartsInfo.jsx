@@ -56,7 +56,7 @@ export function DepartsInfo() {
                );
             })
          ) : (
-            <div>Список відділень</div>
+            <Box sx={{ color: 'secondary.main' }}>Список відділень</Box>
          )}
       </Box>
    );

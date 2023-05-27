@@ -79,7 +79,7 @@ export function TrackingHistory() {
                );
             })
          ) : (
-            <div>History</div>
+            <Box sx={{ color: 'secondary.main' }}>History</Box>
          )}
       </Box>
    );
