@@ -59,6 +59,11 @@ export function FindCityDeparts() {
                         </Grid>
                         <Grid item={true} xs={3}>
                            <Button
+                              className={
+                                 !valid
+                                    ? '  custom-button-shadow root button-shadow'
+                                    : null
+                              }
                               type="submit"
                               xs={4}
                               disabled={!valid || loading}

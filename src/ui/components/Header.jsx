@@ -17,7 +17,7 @@ const Wrapper = styled(Box)({
 
 export function Header() {
    return (
-      <Wrapper className="mobile-header" component="header">
+      <Wrapper component="div">
          <Stack spacing={2} direction="row">
             <Button to={routes.home}>Знайти посилку</Button>
             <Button to={routes.admissionsList}>Знайти відділення</Button>

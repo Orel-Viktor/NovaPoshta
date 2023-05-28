@@ -3,12 +3,14 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectorsTrackingPackage } from '../../engine/core/tracking-package/selectors';
+// Components
+import { LoaderLinear } from './_Helpers/Loader';
 
 function TrackingInfoInner(props) {
    const { data } = props;
    return (
       <>
-         <Box>
+         <Box className=" tracking-inner tracking">
             <Box
                sx={{
                   fontSize: '20px',
@@ -26,7 +28,7 @@ function TrackingInfoInner(props) {
                )}
             </Box>
             <Box sx={{ fontSize: '15px' }}>
-               {data.CounterpartySenderDescription ? (
+               {data.PhoneRecipient || data.PhoneSender ? (
                   <Box
                      sx={{
                         color: 'secondary.info',
@@ -36,10 +38,35 @@ function TrackingInfoInner(props) {
                      }}
                   >
                      <div>
-                        Відправник :{data.CounterpartySenderDescription}{' '}
+                        <Box className="text-gradient">Відправник :</Box>
+                        {data.CounterpartySenderDescription ||
+                           data.CounterpartyRecipientDescription}
                      </div>
-                     <div>Місто відправлення :{data.WarehouseSender}</div>
-                     <div>Місто прибуття :{data.RecipientAddress}</div>
+                     <div>
+                        <Box className="text-gradient">Отримувач :</Box>
+                        {data.RecipientFullName
+                           ? data.RecipientFullName
+                           : data.RecipientFullNameEW}{' '}
+                     </div>
+                     <div>
+                        <Box className="text-gradient">
+                           Місто відправлення :
+                        </Box>
+                        {data.SenderAddress ||
+                           'м.' +
+                              ' ' +
+                              data.CitySender +
+                              ',' +
+                              ' ' +
+                              data.WarehouseSender}
+                     </div>
+                     <div>
+                        {' '}
+                        <Box className="text-gradient">
+                           Місто прибуття :
+                        </Box>{' '}
+                        {data.RecipientAddress}
+                     </div>
                   </Box>
                ) : (
                   <Box sx={{ color: 'secondary.main' }}>
@@ -57,19 +84,22 @@ export function TrackingInfo() {
    const currentTrackingNumber = useSelector(
       selectorsTrackingPackage.trackingNumber
    );
+   const loading = useSelector(selectorsTrackingPackage.loading);
    const currentItem = items.length
       ? items.find((data) => data.Number === currentTrackingNumber)
       : null;
-   return (
-      <>
-         <Box className="text-gradient" component="h2">
+   return loading ? (
+      <LoaderLinear />
+   ) : (
+      <Box>
+         <Box className="root text-gradient" component="h2">
             Інформація за ТТН
          </Box>
          {currentItem ? (
             <TrackingInfoInner data={currentItem}></TrackingInfoInner>
          ) : (
-            <div>Статус Відправлення</div>
+            <Box sx={{ color: 'secondary.main' }}>Статус Відправлення</Box>
          )}
-      </>
+      </Box>
    );
 }

@@ -6,7 +6,7 @@ import { AdmissionsList } from '../../ui/pages/AdmissionsList';
 
 export const routes = {
    home: '/NovaPoshta/',
-   admissionsList: '/admissionsList',
+   admissionsList: '/NovaPoshta/admissionsList',
 };
 
 export const pages = [

@@ -10,8 +10,13 @@ export function Main() {
    return (
       <Box component="div">
          <TrackingForm />
-         <TrackingInfo />
-         <TrackingHistory />
+         <Box
+            className="root tracking-mobile "
+            sx={{ display: 'flex', justifyContent: 'space-between' }}
+         >
+            <TrackingInfo />
+            <TrackingHistory />
+         </Box>
       </Box>
    );
 }

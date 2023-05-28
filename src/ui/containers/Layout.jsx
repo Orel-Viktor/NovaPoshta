@@ -92,11 +92,11 @@ export function Layout() {
    return (
       <Provider store={store}>
          <ThemeProvider theme={theme}>
-            <Container>
+            <Container className="root custom-container">
                <React.Fragment>
                   <CssBaseline />
                   <HideOnScroll>
-                     <AppBar className="custom-gradient">
+                     <AppBar className=" root custom-bar">
                         <Toolbar sx={{ margin: '0 auto' }}>
                            <Typography variant="h6" component="div">
                               <Header />

@@ -29,6 +29,7 @@ function TrackingHistoryInner(props) {
    return (
       <Wrapper>
          <Box
+            className="tracking tracking-history root"
             onClick={onClick}
             sx={{
                cursor: 'pointer',
@@ -54,8 +55,8 @@ export function TrackingHistory() {
       dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
    };
    return (
-      <>
-         <Box className="text-gradient" component="h2">
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+         <Box className="root text-gradient" component="h2">
             Поточні ТТН
          </Box>
          {items.length ? (
@@ -70,7 +71,12 @@ export function TrackingHistory() {
                      key={data.Number + id}
                   >
                      <TrackingHistoryInner
-                        onClick={() => checkItem(data.Number)}
+                        onClick={() =>
+                           checkItem([
+                              data.Number,
+                              data.PhoneRecipient || data.PhoneSender,
+                           ])
+                        }
                         data={data}
                      />
                      <DelButton onClick={() => deleteItem(data.Number)} />
@@ -78,8 +84,8 @@ export function TrackingHistory() {
                );
             })
          ) : (
-            <div>History</div>
+            <Box sx={{ color: 'secondary.main' }}>History</Box>
          )}
-      </>
+      </Box>
    );
 }
