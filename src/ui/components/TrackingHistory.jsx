@@ -71,7 +71,12 @@ export function TrackingHistory() {
                      key={data.Number + id}
                   >
                      <TrackingHistoryInner
-                        onClick={() => checkItem(data.Number)}
+                        onClick={() =>
+                           checkItem([
+                              data.Number,
+                              data.PhoneRecipient || data.PhoneSender,
+                           ])
+                        }
                         data={data}
                      />
                      <DelButton onClick={() => deleteItem(data.Number)} />
