@@ -52,7 +52,13 @@ function TrackingInfoInner(props) {
                         <Box className="text-gradient">
                            Місто відправлення :
                         </Box>
-                        {data.SenderAddress || data.WarehouseSender}
+                        {data.SenderAddress ||
+                           'м.' +
+                              ' ' +
+                              data.CitySender +
+                              ',' +
+                              ' ' +
+                              data.WarehouseSender}
                      </div>
                      <div>
                         {' '}
