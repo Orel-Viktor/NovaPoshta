@@ -1,7 +1,6 @@
-a.header-link {
+.header-link {
    color: red;
 }
-a.header-link.active {
+.header-link.active {
    color: green;
-   font-size: 40px;
 }

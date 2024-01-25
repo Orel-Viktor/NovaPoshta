@@ -20,7 +20,7 @@ export function Header() {
                handleClick('link1');
             }}
             className={
-               activeLink === 'link1' ? 'header-link.active ' : 'header-link'
+               activeLink === 'link1' ? 'header-link active ' : 'header-link'
             }
             to={routes.home}
          >
@@ -29,7 +29,7 @@ export function Header() {
          <Link
             onClick={() => handleClick('link2')}
             className={
-               activeLink === 'link2' ? 'header-link.active ' : 'header-link'
+               activeLink === 'link2' ? 'header-link active ' : 'header-link'
             }
             to={routes.admissionsList}
          >
