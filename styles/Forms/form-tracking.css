@@ -1,0 +1,14 @@
+.form-tracking {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+
+   background-color: white;
+   border-radius: 10px;
+
+   min-height: 475px;
+   max-width: 830px;
+   padding: 46px 73px 46px 142px;
+   margin: 166px 0 0 120px;
+}
