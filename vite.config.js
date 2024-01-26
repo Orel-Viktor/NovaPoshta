@@ -29,6 +29,5 @@ export default defineConfig({
          filename: 'NovaPoshta/admissionsList/index.html',
          title: 'Admissions List Page',
       },
-      // Добавьте дополнительные объекты для других страниц
    ],
 });
