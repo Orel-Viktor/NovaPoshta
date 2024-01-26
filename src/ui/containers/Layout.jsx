@@ -1,8 +1,6 @@
-// Engine
-import { store } from '../../engine/config/store';
 // Core
 import * as React from 'react';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Container } from '@mui/material';
 import { Outlet } from 'react-router-dom';
@@ -90,30 +88,28 @@ function ScrollTop(props) {
 
 export function Layout() {
    return (
-      <Provider store={store}>
-         <ThemeProvider theme={theme}>
-            <Container className="root custom-container">
-               <React.Fragment>
-                  <CssBaseline />
-                  <HideOnScroll>
-                     <AppBar className=" root custom-bar">
-                        <Toolbar sx={{ margin: '0 auto' }}>
-                           <Typography variant="h6" component="div">
-                              <Header />
-                           </Typography>
-                        </Toolbar>
-                     </AppBar>
-                  </HideOnScroll>
-                  <Toolbar id="back-to-top-anchor" />
-               </React.Fragment>
-               <Outlet />
-            </Container>
-            <ScrollTop>
-               <Fab size="small" aria-label="scroll back to top">
-                  <KeyboardArrowUpIcon />
-               </Fab>
-            </ScrollTop>
-         </ThemeProvider>
-      </Provider>
+      <ThemeProvider theme={theme}>
+         <Container className="root custom-container">
+            <React.Fragment>
+               <CssBaseline />
+               <HideOnScroll>
+                  <AppBar className=" root custom-bar">
+                     <Toolbar sx={{ margin: '0 auto' }}>
+                        <Typography variant="h6" component="div">
+                           <Header />
+                        </Typography>
+                     </Toolbar>
+                  </AppBar>
+               </HideOnScroll>
+               <Toolbar id="back-to-top-anchor" />
+            </React.Fragment>
+            <Outlet />
+         </Container>
+         <ScrollTop>
+            <Fab size="small" aria-label="scroll back to top">
+               <KeyboardArrowUpIcon />
+            </Fab>
+         </ScrollTop>
+      </ThemeProvider>
    );
 }
