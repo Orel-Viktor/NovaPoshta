@@ -1,6 +1,6 @@
 // Core
 import React from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes, HashRouter } from 'react-router-dom';
 
 // Engine
 import { store } from '../../engine/config/store';
@@ -13,7 +13,7 @@ import { Layout } from './Layout';
 function App() {
    return (
       <Provider store={store}>
-         <BrowserRouter>
+         <HashRouter>
             <Routes>
                <Route path="/" element={<Layout />}>
                   {pages.map((route) => (
@@ -25,7 +25,7 @@ function App() {
                   ))}
                </Route>
             </Routes>
-         </BrowserRouter>
+         </HashRouter>
       </Provider>
    );
 }
