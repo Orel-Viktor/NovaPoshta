@@ -1,10 +1,9 @@
 // Core
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { HistoryRouter } from 'redux-first-history/rr6';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 // Engine
-import { store, history } from '../../engine/config/store';
+import { store } from '../../engine/config/store';
 import { Provider } from 'react-redux';
 import { pages } from '../../engine/config/routers';
 
@@ -14,7 +13,7 @@ import { Layout } from './Layout';
 function App() {
    return (
       <Provider store={store}>
-         <HistoryRouter history={history}>
+         <BrowserRouter>
             <Routes>
                <Route path="/" element={<Layout />}>
                   {pages.map((route) => (
@@ -26,7 +25,7 @@ function App() {
                   ))}
                </Route>
             </Routes>
-         </HistoryRouter>
+         </BrowserRouter>
       </Provider>
    );
 }
