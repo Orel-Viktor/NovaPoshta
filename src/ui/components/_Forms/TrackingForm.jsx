@@ -33,8 +33,10 @@ export function TrackingForm() {
       }
       return errors;
    };
-   const onSubmit = (values) => {
+   const onSubmit = (values, formApi) => {
+      const { reset } = formApi;
       dispatch(getDataTrackingPackageAsync(values));
+      reset();
    };
    return (
       <div>
@@ -47,7 +49,11 @@ export function TrackingForm() {
             render={(formProps) => {
                const { handleSubmit, valid } = formProps;
                return (
-                  <Box component="form" onSubmit={handleSubmit}>
+                  <Box
+                     sx={{ marginBottom: '80px' }}
+                     component="form"
+                     onSubmit={handleSubmit}
+                  >
                      <Grid
                         spacing={2}
                         sx={{
@@ -73,7 +79,16 @@ export function TrackingForm() {
                            />
                         </Grid>
                         <Grid item={true} xs={3}>
-                           <Button type="submit" xs={4} disabled={!valid}>
+                           <Button
+                              className={
+                                 !valid
+                                    ? '  custom-button-shadow root button-shadow'
+                                    : null
+                              }
+                              type="submit"
+                              xs={4}
+                              disabled={!valid}
+                           >
                               Send
                            </Button>
                         </Grid>
