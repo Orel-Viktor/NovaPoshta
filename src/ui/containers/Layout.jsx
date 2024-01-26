@@ -24,7 +24,7 @@ import Fade from '@mui/material/Fade';
 const theme = createTheme({
    palette: {
       primary: {
-         main: '#808000',
+         main: '#00e676',
       },
       secondary: {
          main: '#e65100',
