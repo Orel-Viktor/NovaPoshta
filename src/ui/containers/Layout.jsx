@@ -1,10 +1,8 @@
 // Core
 import * as React from 'react';
-
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Container } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-
 // Parts
 import { Header } from '../components/Header';
 import { orange } from '@mui/material/colors';
@@ -41,7 +39,6 @@ function HideOnScroll(props) {
    const trigger = useScrollTrigger({
       target: window ? window() : undefined,
    });
-
    return (
       <Slide appear={false} direction="down" in={!trigger}>
          {children}
@@ -65,7 +62,6 @@ function ScrollTop(props) {
       const anchor = (event.target.ownerDocument || document).querySelector(
          '#back-to-top-anchor'
       );
-
       if (anchor) {
          anchor.scrollIntoView({
             block: 'center',
