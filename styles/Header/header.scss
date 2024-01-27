@@ -1,0 +1,28 @@
+.header-link {
+   position: relative;
+   font-family: var(--main-font);
+   font-size: 28px;
+   line-height: 38px;
+}
+.header-link.active {
+   color: #9043ff;
+}
+.header-link.header-link.active::after {
+   content: '';
+   position: absolute;
+   display: block;
+   width: 100%;
+   bottom: -3%;
+
+   border-bottom: 3px solid #9043ff;
+   border-radius: 10px;
+}
+
+.header-toolbar.root {
+   display: flex;
+   align-items: flex-end;
+}
+.header-appbar.root {
+   box-shadow: none;
+   border-bottom: 1px solid #2c2f32;
+}

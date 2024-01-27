@@ -9,7 +9,7 @@ import { Outlet } from 'react-router-dom';
 
 // Parts
 import { Header } from '../components/Header';
-import { orange } from '@mui/material/colors';
+// import { orange } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 // Scrolling
 import PropTypes from 'prop-types';
@@ -30,10 +30,8 @@ const theme = createTheme({
       },
       secondary: {
          main: '#e65100',
-         info: '#08bb11',
-      },
-      custom: {
-         main: orange,
+         info: '#EC1F2B',
+         status: '#90EE90',
       },
    },
 });
@@ -96,8 +94,11 @@ export function Layout() {
                <React.Fragment>
                   <CssBaseline />
                   <HideOnScroll>
-                     <AppBar className=" root custom-bar">
-                        <Toolbar sx={{ margin: '0 auto' }}>
+                     <AppBar className="header-appbar root">
+                        <Toolbar
+                           className="header-toolbar root"
+                           sx={{ margin: '0 auto' }}
+                        >
                            <Typography variant="h6" component="div">
                               <Header />
                            </Typography>

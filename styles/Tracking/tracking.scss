@@ -1,0 +1,52 @@
+.form-tracking {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+
+   background-color: white;
+   border-radius: 10px;
+
+   min-height: 475px;
+   max-width: 830px;
+   width: 100%;
+   padding: 46px 73px 46px 142px;
+   font-family: var(--main-font);
+}
+
+.form-tracking-info {
+   margin: 100px 0 0 0;
+   display: flex;
+   justify-content: space-between;
+   gap: 20px;
+   font-family: var(--main-font);
+}
+
+.tracking-info {
+   align-self: self-start;
+   align-items: self-start;
+   flex-direction: column;
+   display: flex;
+
+   width: 100%;
+   min-height: min-content;
+   max-width: 830px;
+   padding: 46px 51px;
+
+   background-color: white;
+   border-radius: 10px;
+   font-family: var(--main-font);
+
+   &__advice {
+      position: relative;
+      padding: 0 0 0 25px;
+   }
+   &__advice::before {
+      position: absolute;
+      content: url('/src/ui/components/_Helpers/advice-image.svg');
+      left: 0;
+   }
+   &__details {
+      text-align: start;
+   }
+}

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { routes } from '../../engine/config/routers';
 
 export function Header() {
-   const [activeLink, setActiveLink] = useState(null);
+   const [activeLink, setActiveLink] = useState('link1');
 
    const handleClick = (link) => {
       setActiveLink(link);
