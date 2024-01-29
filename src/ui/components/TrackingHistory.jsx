@@ -21,7 +21,14 @@ function DelButton(props) {
       </Button>
    );
 }
-
+function handleCellClick(event) {
+   event.stopPropagation();
+}
+const handleCellKeyPress = (event) => {
+   if (event.key === 'Enter' || event.key === ' ') {
+      console.log('KeyPress on cell');
+   }
+};
 function TrackingHistoryInner(props) {
    const { data, onClick } = props;
    const dispatch = useDispatch();
@@ -45,7 +52,12 @@ function TrackingHistoryInner(props) {
                <td>{data.Number}</td>
                <td>Віпправник</td>
                <td>Статус</td>
-               <td>
+               <td
+                  onClick={handleCellClick}
+                  onKeyDown={handleCellKeyPress}
+                  tabIndex="0"
+                  role="button"
+               >
                   <DelButton onClick={() => deleteItem(data.Number)} />
                </td>
             </>
