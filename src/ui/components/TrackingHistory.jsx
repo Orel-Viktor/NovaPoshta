@@ -8,12 +8,10 @@ import {
 } from '../../engine/core/tracking-package/saga/asyncActions';
 // // Parts
 import { Box } from '@mui/material';
-import { styled } from '@mui/system';
+
 // Components
 import { Button } from './Button';
 import IconDelete from './_Icons/IconDelete.jsx';
-
-const Wrapper = styled(Box)({});
 
 function DelButton(props) {
    const { onClick } = props;
@@ -26,21 +24,33 @@ function DelButton(props) {
 
 function TrackingHistoryInner(props) {
    const { data, onClick } = props;
+   const dispatch = useDispatch();
+
+   const deleteItem = (clickedTrackingNumber) => {
+      dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
+   };
    return (
-      <Wrapper>
-         <Box
-            className="tracking tracking-history root"
-            onClick={onClick}
-            sx={{
-               cursor: 'pointer',
-               fontSize: '30px',
-               color: 'primary.main',
-               marginRight: '10px',
-            }}
-         >
-            {data ? data.Number : <div>Дані відсутні</div>}
-         </Box>
-      </Wrapper>
+      <Box
+         component="tr"
+         onClick={onClick}
+         sx={{
+            cursor: 'pointer',
+            fontSize: '30px',
+
+            marginRight: '10px',
+         }}
+      >
+         {data ? (
+            <>
+               <td>{data.Number}</td>
+               <td>Віпправник</td>
+               <td>Статус</td>
+               <td>
+                  <DelButton onClick={() => deleteItem(data.Number)} />
+               </td>
+            </>
+         ) : null}
+      </Box>
    );
 }
 
@@ -51,41 +61,40 @@ export function TrackingHistory() {
    const checkItem = (clickedTrackingNumber) => {
       dispatch(checkTrackingItemAsync(clickedTrackingNumber));
    };
-   const deleteItem = (clickedTrackingNumber) => {
-      dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
-   };
+
    return (
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
          <Box className="root text-gradient" component="h2">
-            Поточні ТТН
+            Історія пошуку
          </Box>
-         {items.length ? (
-            items.map((data, id) => {
-               return (
-                  <Box
-                     sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        marginBottom: '10px',
-                     }}
-                     key={data.Number + id}
-                  >
-                     <TrackingHistoryInner
-                        onClick={() =>
-                           checkItem([
-                              data.Number,
-                              data.PhoneRecipient || data.PhoneSender,
-                           ])
-                        }
-                        data={data}
-                     />
-                     <DelButton onClick={() => deleteItem(data.Number)} />
-                  </Box>
-               );
-            })
-         ) : (
-            <Box sx={{ color: 'secondary.main' }}>History</Box>
-         )}
+         <table>
+            <thead>
+               <tr>
+                  <th>TTH</th>
+                  <th>Віпправник</th>
+                  <th>Статус</th>
+               </tr>
+            </thead>
+
+            {items.length
+               ? items.map((data, id) => {
+                    return (
+                       <tbody key={data.Number + id}>
+                          <TrackingHistoryInner
+                             onClick={() =>
+                                checkItem([
+                                   data.Number,
+                                   data.PhoneRecipient || data.PhoneSender,
+                                ])
+                             }
+                             data={data}
+                          />
+                       </tbody>
+                    );
+                 })
+               : //
+                 null}
+         </table>
       </Box>
    );
 }
