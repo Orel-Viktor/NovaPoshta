@@ -35,7 +35,6 @@ const trackingPackage = createSlice({
          );
       },
       checkItem: (state, action) => {
-         console.log('delete');
          state.trackingNumber = action.payload;
          localStorage.setItem(
             'trackingNumber',

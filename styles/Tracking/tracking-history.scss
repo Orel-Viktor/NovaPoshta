@@ -1,6 +1,9 @@
 .tracking-history {
    display: flex;
    flex-direction: column;
+   padding: 46px 142px;
+   border-radius: 10px;
+   background-color: (var(--main-color));
 
    & table {
       border-collapse: collapse;
