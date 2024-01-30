@@ -1,0 +1,39 @@
+.tracking-history {
+   display: flex;
+   flex-direction: column;
+
+   & table {
+      border-collapse: collapse;
+      background-color: var(--main-color); //white
+   }
+
+   & thead {
+      background-color: var(--theme-color); //purple
+      text-align: left;
+      border-radius: 10px 10px 0 0;
+      padding: 13px 26px;
+      border: 1px solid var(--theme-color);
+   }
+   & tbody {
+      text-align: left;
+   }
+   & tbody:nth-child(even) {
+      background-color: #f0eafc;
+   }
+
+   & tbody:hover {
+      background-color: #c6c0d0;
+   }
+   & th {
+      padding: 13px 26px;
+      color: var(--main-color);
+   }
+
+   & td {
+      padding: 13px 26px;
+      color: #52616b;
+
+      font-family: var(--main-font);
+      font-size: 18px;
+   }
+}

@@ -38,6 +38,7 @@ function TrackingHistoryInner(props) {
    };
    return (
       <Box
+         className="tracking-history__tr"
          component="tr"
          onClick={onClick}
          sx={{
@@ -55,7 +56,7 @@ function TrackingHistoryInner(props) {
                <td
                   onClick={handleCellClick}
                   onKeyDown={handleCellKeyPress}
-                  tabIndex="0"
+                  // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
                   role="button"
                >
                   <DelButton onClick={() => deleteItem(data.Number)} />
@@ -75,16 +76,15 @@ export function TrackingHistory() {
    };
 
    return (
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-         <Box className="root text-gradient" component="h2">
-            Історія пошуку
-         </Box>
+      <Box className="tracking-history">
+         <Box component="h2">Історія пошуку</Box>
          <table>
             <thead>
                <tr>
                   <th>TTH</th>
                   <th>Віпправник</th>
                   <th>Статус</th>
+                  <th></th>
                </tr>
             </thead>
 

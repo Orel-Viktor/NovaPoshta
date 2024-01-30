@@ -43,14 +43,11 @@ const trackingPackage = createSlice({
          );
       },
       deleteItem: (state, action) => {
-         console.log(action.payload);
          const deleteNumber = action.payload;
          state.items = state.items.filter(
             (elem) => elem.Number !== deleteNumber
          );
-         console.log(state.items);
          localStorage.setItem('data', JSON.stringify(state.items));
-         console.log(state.items);
       },
       setLoading: (state, action) => {
          state.loading = action.payload;

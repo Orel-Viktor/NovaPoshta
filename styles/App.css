@@ -1,7 +1,10 @@
 @import './Fonts.css';
-@import './Tracking/tracking.scss';
+@import './Tracking/form-tracking-info.scss';
+@import './Tracking/tracking-history.scss';
 @import './Header/header.scss';
+
 @import 'normalize.css';
+@import './variables.css';
 
 #root {
    max-width: 1920px;
