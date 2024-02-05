@@ -7,11 +7,22 @@
    background-color: var(--main-color); //white
    border-radius: 10px;
 
-   min-height: 475px;
+   min-height: 375px;
    max-width: 830px;
    width: 100%;
    padding: 46px 73px 46px 142px;
    font-family: var(--main-font);
+
+   & h2 {
+      font-size: 24px;
+   }
+
+   & .box {
+      width: 100%;
+   }
+   & .box-input {
+      width: 100%;
+   }
 }
 
 .form-tracking-info {

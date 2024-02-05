@@ -53,20 +53,21 @@ export function TrackingForm() {
                   onSubmit={handleSubmit}
                   className=" form-tracking "
                >
-                  <Box>Введіть данні для пошуку посилки:</Box>
-                  <Box>
+                  <Box component="h2">Введіть данні для пошуку посилки:</Box>
+                  <Box className="box">
                      <Field
                         name="tracking"
-                        label="traking"
+                        label="Номер ТТН"
                         component={TextField}
                      />
                   </Box>
-                  <Box>
+                  <Box className="box">
                      <Field
                         placeholder="380962700019"
                         name="phone"
-                        label="phone"
+                        label="Телефон"
                         component={TextField}
+                        // variant="standard"
                      />
                   </Box>
                   <Box>
@@ -80,7 +81,7 @@ export function TrackingForm() {
                         xs={4}
                         disabled={!valid}
                      >
-                        Send
+                        Пошук
                      </Button>
                   </Box>
                </Box>

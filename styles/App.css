@@ -14,5 +14,5 @@
    text-align: center;
 }
 .custom-body {
-   background-color: rgb(238, 238, 238);
+   background-color: var(--second-color);
 }
