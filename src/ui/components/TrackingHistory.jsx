@@ -51,8 +51,12 @@ function TrackingHistoryInner(props) {
          {data ? (
             <>
                <td>{data.Number}</td>
-               <td>Віпправник</td>
-               <td>Статус</td>
+               <td>
+                  {' '}
+                  {data.CounterpartySenderDescription ||
+                     data.CounterpartyRecipientDescription}
+               </td>
+               <td>{data.Status}</td>
                <td
                   onClick={handleCellClick}
                   onKeyDown={handleCellKeyPress}

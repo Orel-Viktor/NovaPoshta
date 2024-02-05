@@ -1,9 +1,13 @@
 .tracking-history {
    display: flex;
    flex-direction: column;
-   padding: 46px 142px;
+   padding: 46px 125px;
    border-radius: 10px;
    background-color: (var(--main-color));
+
+   & h2 {
+      text-align: left;
+   }
 
    & table {
       border-collapse: collapse;
@@ -15,7 +19,6 @@
       text-align: left;
       border-radius: 10px 10px 0 0;
       padding: 13px 26px;
-      border: 1px solid var(--theme-color);
    }
    & tbody {
       text-align: left;
@@ -30,13 +33,29 @@
    & th {
       padding: 13px 26px;
       color: var(--main-color);
+      width: 30%;
+   }
+
+   & th:first-child {
+      border-radius: 10px 0 0 0;
+      width: 10%;
+   }
+
+   & th:last-child {
+      border-radius: 0 10px 0 0;
+      width: 10%;
    }
 
    & td {
-      padding: 13px 26px;
+      padding: 9px 22px;
       color: #52616b;
-
+      opacity: 85%;
       font-family: var(--main-font);
-      font-size: 18px;
+      font-size: 16px;
+      line-height: 22px;
+   }
+
+   & td:last-child {
+      text-align: right;
    }
 }
