@@ -14,6 +14,10 @@
       background-color: var(--main-color); //white
    }
 
+   &__table-div {
+      overflow: auto;
+      width: 100%;
+   }
    & thead {
       background-color: var(--theme-color); //purple
       text-align: left;
