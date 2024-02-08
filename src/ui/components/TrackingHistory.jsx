@@ -11,7 +11,7 @@ import { Box } from '@mui/material';
 
 // Components
 import { Button } from './Button';
-import IconDelete from '../../../icons/IconDelete';
+import IconDelete from '../../../public/icons/IconDelete';
 
 function DelButton(props) {
    const { onClick } = props;
