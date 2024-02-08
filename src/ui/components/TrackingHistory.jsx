@@ -99,12 +99,7 @@ function MobileTrackingHistoryInner(props) {
          {data ? (
             <div className="tracking-history__mobile-inner">
                <div className="tracking-history__mobile-number-delete">
-                  <div
-                     onClick={handleCellClick}
-                     onKeyDown={handleCellKeyPress}
-                     tabIndex={0}
-                     role="button"
-                  >
+                  <div>
                      {data.Number}
                      <img
                         onKeyDown={handleCellKeyPress}
