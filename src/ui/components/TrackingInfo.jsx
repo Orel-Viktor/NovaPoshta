@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectorsTrackingPackage } from '../../engine/core/tracking-package/selectors';
 // Components
-import { LoaderLinear } from './_Helpers/Loader';
+import { LoaderLinear } from './Helpers/Loader';
 
 function TrackingInfoInner(props) {
    const { data } = props;

@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { selectorsFindCityDeparts } from '../../engine/core/find-city/selectors';
 // Components
-import { LoaderLinear } from './_Helpers/Loader';
+import { LoaderLinear } from './Helpers/Loader';
 
 function DepartsInfoInner(props) {
    const { data } = props;
