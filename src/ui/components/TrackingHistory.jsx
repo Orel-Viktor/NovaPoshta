@@ -23,7 +23,7 @@ function DelButton(props) {
          <IconDelete />
          <img
             className="tracking-history__mobile-delete-icon root"
-            src="./src/ui/components/icons/delete-mobile-icon.png"
+            src="/src/ui/components/icons/delete-mobile-icon.png"
             alt="видалити  ТТН"
          />
       </Button>
