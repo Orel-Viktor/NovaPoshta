@@ -1,85 +1,18 @@
-@import './Adaptive/form.css';
-
-@import './Forms/input.css';
-@import './Tracking/tracking.css';
+@import './Fonts.css';
+@import './Tracking/form-tracking-info.scss';
+@import './Tracking/tracking-history.scss';
+@import './Header/header.scss';
+@import '/styles/Layout.css';
+@import 'normalize.css';
+@import './variables.css';
 
 #root {
-   max-width: 1280px;
+   max-width: 1920px;
    width: 100%;
    margin: 0 auto;
    padding: 0;
    text-align: center;
 }
-
-/* MUI CONTAINER */
-
-.root.custom-container {
-   padding-top: 140px;
-}
-
-/* //////////////////////HEADER /////////////////////*/
-.root.custom-bar {
-   -webkit-box-shadow: -10px 2px 20px 4px rgba(92, 214, 107, 1);
-   -moz-box-shadow: -10px 2px 20px 4px rgba(92, 214, 107, 1);
-   box-shadow: -10px 2px 40px 4px rgba(92, 214, 107, 1);
-   background: #322c2c;
-   border-radius: 0px 0px 20% 20%;
-}
-.root.custom-body {
-   background: #262626;
-}
-
-/* /////////////////////////////////ANY///////////////////////////// */
-.text-gradient {
-   background-color: #2aa5a0;
-
-   background: -webkit-linear-gradient(
-         45deg,
-         hsla(162, 100%, 50%, 1) 0%,
-         hsla(162, 100%, 50%, 0) 70%
-      ),
-      -webkit-linear-gradient(315deg, hsla(200, 95%, 45%, 1) 10%, hsla(
-                  200,
-                  95%,
-                  45%,
-                  0
-               )
-               80%),
-      -webkit-linear-gradient(225deg, hsla(312, 94%, 45%, 1) 10%, hsla(
-                  312,
-                  94%,
-                  45%,
-                  0
-               )
-               80%),
-      -webkit-linear-gradient(135deg, hsla(317, 93%, 49%, 1) 100%, hsla(
-                  317,
-                  93%,
-                  49%,
-                  0
-               )
-               70%);
-   background: linear-gradient(
-         45deg,
-         hsla(162, 100%, 50%, 1) 0%,
-         hsla(162, 100%, 50%, 0) 70%
-      ),
-      linear-gradient(
-         135deg,
-         hsla(200, 95%, 45%, 1) 10%,
-         hsla(200, 95%, 45%, 0) 80%
-      ),
-      linear-gradient(
-         225deg,
-         hsla(312, 94%, 45%, 1) 10%,
-         hsla(312, 94%, 45%, 0) 80%
-      ),
-      linear-gradient(
-         315deg,
-         hsla(317, 93%, 49%, 1) 100%,
-         hsla(317, 93%, 49%, 0) 70%
-      );
-
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
+.custom-body {
+   background-color: var(--second-color);
 }
