@@ -23,7 +23,7 @@ function DelButton(props) {
          <IconDelete />
          <img
             className="tracking-history__mobile-delete-icon root"
-            src="src/ui/components/icons/deleteMobileIcon.PNG"
+            src="./src/ui/components/icons/deleteMobileIcon.PNG"
             alt="видалити  ТТН"
          />
       </Button>
@@ -108,7 +108,7 @@ function MobileTrackingHistoryInner(props) {
                         role="button"
                         onClick={() => coppyNumber(data.Number)}
                         className="tracking-history__mobile-coppy-image"
-                        src="src/ui/components/icons/coppyNumberImage.PNG"
+                        src="./src/ui/components/icons/coppyNumberImage.png"
                         alt="копіювати ТТН"
                      />
                   </div>
