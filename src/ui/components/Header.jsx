@@ -1,5 +1,5 @@
 // Core
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // Parts
 import Stack from '@mui/material/Stack';
 // import { Button } from './Button';
@@ -9,10 +9,18 @@ import { routes } from '../../engine/config/routers';
 
 export function Header() {
    const [activeLink, setActiveLink] = useState('link1');
-
    const handleClick = (link) => {
       setActiveLink(link);
+      localStorage.setItem('activeLink', link);
    };
+
+   useEffect(() => {
+      const storedLink = localStorage.getItem('activeLink');
+      if (storedLink) {
+         setActiveLink(storedLink);
+      }
+   }, []);
+
    return (
       <Stack spacing={2} direction="row">
          <Link
