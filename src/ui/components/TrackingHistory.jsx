@@ -11,7 +11,7 @@ import { Box } from '@mui/material';
 
 // Components
 import { Button } from './Button';
-import IconDelete from './_Icons/IconDelete.jsx';
+import IconDelete from './icons/IconDelete.jsx';
 
 function DelButton(props) {
    const { onClick } = props;
@@ -23,7 +23,7 @@ function DelButton(props) {
          <IconDelete />
          <img
             className="tracking-history__mobile-delete-icon root"
-            src="./src/ui/components/_Icons/delete-mobile-icon.png"
+            src="./src/ui/components/icons/delete-mobile-icon.png"
             alt="видалити  ТТН"
          />
       </Button>
@@ -108,7 +108,7 @@ function MobileTrackingHistoryInner(props) {
                         role="button"
                         onClick={() => coppyNumber(data.Number)}
                         className="tracking-history__mobile-coppy-image"
-                        src="./src/ui/components/_Icons/coppy-number-image.png"
+                        src="./src/ui/components/icons/coppy-number-image.png"
                         alt="копіювати ТТН"
                      />
                   </div>
