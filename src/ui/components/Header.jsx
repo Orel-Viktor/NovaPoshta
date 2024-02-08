@@ -11,16 +11,15 @@ export function Header() {
    const [activeLink, setActiveLink] = useState('link1');
    const handleClick = (link) => {
       setActiveLink(link);
-      localStorage.setItem('activeLink', link);
+      sessionStorage.setItem('activeLink', link);
    };
 
    useEffect(() => {
-      const storedLink = localStorage.getItem('activeLink');
+      const storedLink = sessionStorage.getItem('activeLink');
       if (storedLink) {
          setActiveLink(storedLink);
       }
    }, []);
-
    return (
       <Stack spacing={2} direction="row">
          <Link
