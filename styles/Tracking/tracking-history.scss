@@ -92,17 +92,20 @@
       }
    }
 
-   &__mobile-delete-icon {
+   &__mobile-delete-icon.root {
       display: none;
       @media screen and (max-width: 690px) {
          display: block;
+         background-color: rgba(255, 255, 255, 1);
+         box-shadow: none;
       }
    }
 
    &__mobile-button.root {
       min-width: 0;
       padding: 0;
-      background-color: none;
+      background: rgba(255, 255, 255, 1);
+      box-shadow: none;
    }
 
    &__mobile-inner {

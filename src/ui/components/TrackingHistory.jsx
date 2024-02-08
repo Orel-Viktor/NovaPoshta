@@ -22,7 +22,7 @@ function DelButton(props) {
       >
          <IconDelete />
          <img
-            className="tracking-history__mobile-delete-icon"
+            className="tracking-history__mobile-delete-icon root"
             src="/src/ui/components/_Icons/delete-mobile-icon.png"
             alt="видалити  ТТН"
          />
@@ -84,6 +84,9 @@ function MobileTrackingHistoryInner(props) {
    const deleteItem = (clickedTrackingNumber) => {
       dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
    };
+   function coppyNumber(number) {
+      navigator.clipboard.writeText(number).then(console.log(number));
+   }
    return (
       <Box
          className="tracking-history__mobile"
@@ -96,9 +99,19 @@ function MobileTrackingHistoryInner(props) {
          {data ? (
             <div className="tracking-history__mobile-inner">
                <div className="tracking-history__mobile-number-delete">
-                  <div>
+                  <div
+                     onClick={handleCellClick}
+                     onKeyDown={handleCellKeyPress}
+                     tabIndex={0}
+                     role="button"
+                  >
                      {data.Number}
                      <img
+                        onKeyDown={handleCellKeyPress}
+                        tabIndex={0}
+                        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+                        role="button"
+                        onClick={() => coppyNumber(data.Number)}
                         className="tracking-history__mobile-coppy-image"
                         src="/src/ui/components/_Icons/coppy-number-image.png"
                         alt="копіювати ТТН"

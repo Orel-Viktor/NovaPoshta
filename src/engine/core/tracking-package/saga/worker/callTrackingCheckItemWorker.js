@@ -7,7 +7,7 @@ import { api } from '../../../../config/axios';
 
 export function* callTrackingCheckItemWorker(action) {
    window.scrollTo({
-      top: 0,
+      top: 200,
       behavior: 'smooth', // Добавляем плавную анимацию прокрутки
    });
 
