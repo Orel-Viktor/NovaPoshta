@@ -16,8 +16,16 @@ import IconDelete from './_Icons/IconDelete.jsx';
 function DelButton(props) {
    const { onClick } = props;
    return (
-      <Button onClick={onClick}>
+      <Button
+         className="tracking-history__mobile-button root"
+         onClick={onClick}
+      >
          <IconDelete />
+         <img
+            className="tracking-history__mobile-delete-icon"
+            src="/src/ui/components/_Icons/delete-mobile-icon.png"
+            alt="видалити  ТТН"
+         />
       </Button>
    );
 }
@@ -90,7 +98,11 @@ function MobileTrackingHistoryInner(props) {
                <div className="tracking-history__mobile-number-delete">
                   <div>
                      {data.Number}
-                     <img src="" alt="копіювати ТТН" />
+                     <img
+                        className="tracking-history__mobile-coppy-image"
+                        src="/src/ui/components/_Icons/coppy-number-image.png"
+                        alt="копіювати ТТН"
+                     />
                   </div>
                   <div
                      onClick={handleCellClick}
@@ -98,7 +110,7 @@ function MobileTrackingHistoryInner(props) {
                      tabIndex={0}
                      role="button"
                   >
-                     <DelButton onClick={() => deleteItem(data.Number)} />{' '}
+                     <DelButton onClick={() => deleteItem(data.Number)} />
                   </div>
                </div>
                {data.CounterpartySenderDescription ||

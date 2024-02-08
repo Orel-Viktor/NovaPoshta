@@ -70,6 +70,12 @@
       text-align: right;
    }
 
+   &__delete-icon.root {
+      @media screen and (max-width: 690px) {
+         display: none;
+      }
+   }
+
    @media screen and (max-width: 930px) {
       padding: 10px;
    }
@@ -85,12 +91,34 @@
          padding: 10px;
       }
    }
+
+   &__mobile-delete-icon {
+      display: none;
+      @media screen and (max-width: 690px) {
+         display: block;
+      }
+   }
+
+   &__mobile-button.root {
+      min-width: 0;
+      padding: 0;
+      background-color: none;
+   }
+
    &__mobile-inner {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-around;
       font-size: 18px;
       min-height: 180px;
+   }
+
+   &__mobile-coppy-image {
+      margin-left: 10px;
+      position: absolute;
+      content: '';
+      top: 0;
+      right: -30px;
    }
 
    &__mobile:nth-child(even) {
@@ -107,7 +135,7 @@
    &__mobile-status > div:nth-child(1),
    &__mobile-number-delete > div:nth-child(1),
    &__mobile-sender > div:nth-child(1) {
-      width: 40%;
+      position: relative;
       text-align: left;
    }
    &__mobile-status > div:nth-child(2),
