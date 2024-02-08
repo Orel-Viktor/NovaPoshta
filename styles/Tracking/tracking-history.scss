@@ -7,6 +7,9 @@
 
    & h2 {
       text-align: left;
+      @media screen and (max-width: 690px) {
+         padding: 10px;
+      }
    }
 
    & table {
@@ -17,6 +20,10 @@
    &__table-div {
       overflow: auto;
       width: 100%;
+
+      @media screen and (max-width: 690px) {
+         display: none;
+      }
    }
    & thead {
       background-color: var(--theme-color); //purple
@@ -61,5 +68,53 @@
 
    & td:last-child {
       text-align: right;
+   }
+
+   @media screen and (max-width: 930px) {
+      padding: 10px;
+   }
+   @media screen and (max-width: 690px) {
+      padding: 0;
+   }
+
+   &__mobile {
+      display: none;
+
+      @media screen and (max-width: 690px) {
+         display: block;
+         padding: 10px;
+      }
+   }
+   &__mobile-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 18px;
+      min-height: 180px;
+   }
+
+   &__mobile:nth-child(even) {
+      background-color: #f0eafc;
+   }
+
+   &__mobile-status,
+   &__mobile-number-delete,
+   &__mobile-sender {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   &__mobile-status > div:nth-child(1),
+   &__mobile-number-delete > div:nth-child(1),
+   &__mobile-sender > div:nth-child(1) {
+      width: 40%;
+      text-align: left;
+   }
+   &__mobile-status > div:nth-child(2),
+   &__mobile-sender > div:nth-child(2) {
+      width: 60%;
+      text-align: left;
+      color: #52616b;
+      font-size: 16px;
    }
 }

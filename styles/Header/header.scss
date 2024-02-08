@@ -3,6 +3,10 @@
    font-family: var(--main-font);
    font-size: 28px;
    line-height: 38px;
+
+   @media screen and (max-width: 560px) {
+      font-size: 18px;
+   }
 }
 .header-link.active {
    color: #9043ff;
@@ -21,7 +25,11 @@
 .header-toolbar.root {
    display: flex;
    align-items: flex-end;
+   @media screen and (max-width: 700px) {
+      margin-top: 20px;
+   }
 }
+
 .header-appbar.root {
    box-shadow: none;
    border-bottom: 1px solid #2c2f32;
