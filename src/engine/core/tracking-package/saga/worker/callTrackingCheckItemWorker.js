@@ -6,8 +6,8 @@ import { checkItem, addItems, setLoading } from '../../slice';
 import { api } from '../../../../config/axios';
 
 export function* callTrackingCheckItemWorker(action) {
-   window.scrollTo({
-      top: 200,
+   yield window.scrollTo({
+      top: 100,
       behavior: 'smooth', // Добавляем плавную анимацию прокрутки
    });
 
