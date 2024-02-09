@@ -104,12 +104,12 @@ function MobileTrackingHistoryInner(props) {
                      <img
                         onKeyDown={handleCellKeyPress}
                         tabIndex={0}
-                        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-                        role="button"
                         onClick={() => coppyNumber(data.Number)}
                         className="tracking-history__mobile-coppy-image"
                         src="./icons/coppyNumberImage.png"
                         alt="копіювати ТТН"
+                        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+                        role="button"
                      />
                   </div>
                   <div
