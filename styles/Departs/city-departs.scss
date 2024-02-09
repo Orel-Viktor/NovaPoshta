@@ -42,13 +42,10 @@
    & tbody {
       text-align: left;
    }
-   & tbody > tr:nth-child(odd) {
+   &__tr:nth-child(odd) {
       background-color: #f0eafc;
    }
 
-   & tbody:hover {
-      background-color: #c6c0d0;
-   }
    & th {
       padding: 13px 26px;
       color: var(--main-color);
@@ -73,6 +70,11 @@
       font-size: 16px;
       line-height: 22px;
       text-align: left;
+   }
+
+   & tr:hover {
+      background-color: #c6c0d0;
+      cursor: pointer;
    }
 
    &__mobile {

@@ -6,12 +6,12 @@ import { checkItem, addItems, setLoading } from '../../slice';
 import { api } from '../../../../config/axios';
 
 export function* callTrackingCheckItemWorker(action) {
-   yield delay(1000);
+   yield put(setLoading(true));
+   yield delay(300);
    yield window.scrollTo({
       top: 200,
       behavior: 'smooth', // Добавляем плавную анимацию прокрутки
    });
-   yield put(setLoading(true));
 
    const { payload } = action;
    const currentTrackingNumber = payload[0];

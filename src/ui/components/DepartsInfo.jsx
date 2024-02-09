@@ -12,7 +12,7 @@ function DepartsInfoInner(props) {
       <tbody>
          {data.map((elem, id) => {
             return (
-               <tr key={elem + id}>
+               <tr className="departs-city__tr" key={elem + id}>
                   <td>{elem.Number}</td>
                   <td>{elem.ShortAddressRu}</td>
                   <td>До {elem.PlaceMaxWeightAllowed}кг</td>
