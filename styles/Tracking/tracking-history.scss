@@ -5,6 +5,13 @@
    border-radius: 10px;
    background-color: (var(--main-color));
 
+   @media screen and (max-width: 930px) {
+      padding: 10px;
+   }
+   @media screen and (max-width: 690px) {
+      padding: 0;
+   }
+
    & h2 {
       text-align: left;
       @media screen and (max-width: 690px) {
@@ -74,13 +81,6 @@
       @media screen and (max-width: 690px) {
          display: none;
       }
-   }
-
-   @media screen and (max-width: 930px) {
-      padding: 10px;
-   }
-   @media screen and (max-width: 690px) {
-      padding: 0;
    }
 
    &__mobile {
