@@ -84,7 +84,7 @@ function MobileTrackingHistoryInner(props) {
       dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
    };
    function coppyNumber(number) {
-      navigator.clipboard.writeText(number).then(console.log(number));
+      navigator.clipboard.writeText(number);
    }
    return (
       <Box
