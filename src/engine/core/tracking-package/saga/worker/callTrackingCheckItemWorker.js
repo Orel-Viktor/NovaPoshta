@@ -1,11 +1,16 @@
 // Core
-import { put, call } from 'redux-saga/effects';
+import { put, call, delay } from 'redux-saga/effects';
 // Parts
 import { checkItem, addItems, setLoading } from '../../slice';
 // Engine
 import { api } from '../../../../config/axios';
 
 export function* callTrackingCheckItemWorker(action) {
+   yield delay(1000);
+   yield window.scrollTo({
+      top: 200,
+      behavior: 'smooth', // Добавляем плавную анимацию прокрутки
+   });
    yield put(setLoading(true));
 
    const { payload } = action;
@@ -19,9 +24,6 @@ export function* callTrackingCheckItemWorker(action) {
    const data = response.data;
    yield put(checkItem(currentTrackingNumber));
    yield put(addItems(data));
-   yield window.scrollTo({
-      top: 100,
-      behavior: 'smooth', // Добавляем плавную анимацию прокрутки
-   });
+
    yield put(setLoading(false));
 }
