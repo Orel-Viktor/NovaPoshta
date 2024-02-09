@@ -4,7 +4,7 @@ const trackingPackage = createSlice({
    name: 'trackingPackage',
    initialState: {
       items: JSON.parse(localStorage.getItem('data')) || [],
-      loading: false,
+      loading: true,
       trackingNumber: JSON.parse(localStorage.getItem('trackingNumber')) || [],
    },
    reducers: {
