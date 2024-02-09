@@ -22,14 +22,13 @@ export function TrackingForm() {
       const errors = {};
       const regExpDigit = /^\d+$/;
       if (value.tracking === undefined) {
-         errors.tracking = 'Введите значние';
+         errors.tracking = 'Введіть значення';
       } else if (!regExpDigit.test(value.tracking)) {
-         errors.tracking =
-            'допускаются только числа,возможно в поле есть пробелы';
+         errors.tracking = 'тільки числа, можливо є пробіли';
       } else if (value.tracking.length < 14) {
-         errors.tracking = 'вы ввели меньше 14 цифр';
+         errors.tracking = 'введено менше 14 цифр';
       } else if (value.tracking.length > 14) {
-         errors.tracking = 'вы ввели больше 14 цифр';
+         errors.tracking = 'введено білше 14 цифр';
       }
       return errors;
    };
@@ -71,16 +70,7 @@ export function TrackingForm() {
                      />
                   </Box>
                   <Box>
-                     <Button
-                        className={
-                           !valid
-                              ? '  custom-button-shadow root button-shadow'
-                              : null
-                        }
-                        type="submit"
-                        xs={4}
-                        disabled={!valid}
-                     >
+                     <Button type="submit" xs={4} disabled={!valid}>
                         Пошук
                      </Button>
                   </Box>

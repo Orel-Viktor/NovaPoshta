@@ -33,10 +33,9 @@ function handleCellClick(event) {
    event.stopPropagation();
 }
 const handleCellKeyPress = (event) => {
-   if (event.key === 'Enter' || event.key === ' ') {
-      console.log('KeyPress on cell');
-   }
+   event.key === 'Enter' || event.key === ' ';
 };
+
 function TrackingHistoryInner(props) {
    const { data, onClick } = props;
    const dispatch = useDispatch();
