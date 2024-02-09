@@ -20,6 +20,7 @@
    }
 
    & table {
+      width: 100%;
       border-collapse: collapse;
       background-color: var(--main-color); //white
    }
@@ -41,7 +42,7 @@
    & tbody {
       text-align: left;
    }
-   & tbody > tr:nth-child(even) {
+   & tbody > tr:nth-child(odd) {
       background-color: #f0eafc;
    }
 
@@ -91,7 +92,7 @@
       min-height: 140px;
    }
 
-   &__mobile-element:nth-child(even) {
+   &__mobile-element:nth-child(odd) {
       background-color: #f0eafc;
    }
    &__mobile-element > div {

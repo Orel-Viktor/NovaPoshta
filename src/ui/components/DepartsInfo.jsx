@@ -8,7 +8,6 @@ import { LoaderLinear } from './Helpers/Loader';
 
 function DepartsInfoInner(props) {
    const { data } = props;
-   console.log(data);
    return data.length ? (
       <tbody>
          {data.map((elem, id) => {
@@ -21,11 +20,7 @@ function DepartsInfoInner(props) {
             );
          })}
       </tbody>
-   ) : (
-      <Box sx={{ fontSize: '15px', color: 'secondary.main' }}>
-         Відділеня не знайдено
-      </Box>
-   );
+   ) : null;
 }
 
 function MobileDepartsInfoInner(props) {
@@ -43,8 +38,8 @@ function MobileDepartsInfoInner(props) {
          })}
       </div>
    ) : (
-      <Box sx={{ fontSize: '15px', color: 'secondary.main' }}>
-         Відділеня не знайдено
+      <Box className="sfdf" sx={{ fontSize: '15px', color: 'secondary.main' }}>
+         Відділень не знайдено
       </Box>
    );
 }
@@ -52,11 +47,12 @@ function MobileDepartsInfoInner(props) {
 export function DepartsInfo() {
    const items = useSelector(selectorsFindCityDeparts.items);
    const loading = useSelector(selectorsFindCityDeparts.loading);
+   const condition = items[0] ? items[0].map((elem) => elem.Number) : [];
    return loading ? (
       <LoaderLinear />
    ) : (
       <Box component="div" className="departs-city">
-         {items.length ? (
+         {condition.length ? (
             <div className="departs-city__table-div">
                <table>
                   <thead>
