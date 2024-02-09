@@ -1,5 +1,5 @@
 // Core
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectorsTrackingPackage } from '../../engine/core/tracking-package/selectors';
 import {
@@ -78,13 +78,25 @@ function TrackingHistoryInner(props) {
 }
 
 function MobileTrackingHistoryInner(props) {
+   const [notification, setNotification] = useState(null);
    const { data, onClick } = props;
    const dispatch = useDispatch();
    const deleteItem = (clickedTrackingNumber) => {
       dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
    };
    function coppyNumber(number) {
-      navigator.clipboard.writeText(number);
+      navigator.clipboard.writeText(number).then(function () {
+         showNotification('Номер Скопійовано');
+      });
+   }
+   function showNotification(message) {
+      setNotification(message);
+      // let notification = document.querySelector('.notification');
+      // notification.innerText = message;
+      // notification.style.display = 'block';
+      setTimeout(function () {
+         setNotification(null);
+      }, 2000);
    }
    return (
       <Box
@@ -99,6 +111,9 @@ function MobileTrackingHistoryInner(props) {
             <div className="tracking-history__mobile-inner">
                <div className="tracking-history__mobile-number-delete">
                   <div>
+                     {notification ? (
+                        <div className="notification">{notification}</div>
+                     ) : null}
                      {data.Number}
                      <img
                         onKeyDown={handleCellKeyPress}

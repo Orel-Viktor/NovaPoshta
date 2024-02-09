@@ -8,10 +8,10 @@ import { api } from '../../../../config/axios';
 export function* callTrackingCheckItemWorker(action) {
    yield put(setLoading(true));
    yield delay(300);
-   yield window.scrollTo({
-      top: 200,
-      behavior: 'smooth', // Добавляем плавную анимацию прокрутки
-   });
+   // yield window.scrollTo({
+   //    top: 200,
+   //    behavior: 'smooth', // Добавляем плавную анимацию прокрутки
+   // });
 
    const { payload } = action;
    const currentTrackingNumber = payload[0];
