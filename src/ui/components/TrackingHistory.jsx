@@ -91,9 +91,6 @@ function MobileTrackingHistoryInner(props) {
    }
    function showNotification(message) {
       setNotification(message);
-      // let notification = document.querySelector('.notification');
-      // notification.innerText = message;
-      // notification.style.display = 'block';
       setTimeout(function () {
          setNotification(null);
       }, 2000);
