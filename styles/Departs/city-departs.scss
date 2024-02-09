@@ -1,4 +1,4 @@
-.tracking-history {
+.departs-city {
    display: flex;
    flex-direction: column;
    padding: 46px 125px;
@@ -12,7 +12,6 @@
    @media screen and (max-width: 690px) {
       padding: 0;
    }
-
    & h2 {
       text-align: left;
       @media screen and (max-width: 690px) {
@@ -42,7 +41,7 @@
    & tbody {
       text-align: left;
    }
-   & tbody:nth-child(even) {
+   & tbody > tr:nth-child(even) {
       background-color: #f0eafc;
    }
 
@@ -52,17 +51,17 @@
    & th {
       padding: 13px 26px;
       color: var(--main-color);
-      width: 30%;
+      width: 40%;
    }
 
    & th:first-child {
       border-radius: 10px 0 0 0;
-      width: 10%;
+      width: 20%;
    }
 
    & th:last-child {
       border-radius: 0 10px 0 0;
-      width: 10%;
+      width: 20%;
    }
 
    & td {
@@ -72,10 +71,7 @@
       font-family: var(--main-font);
       font-size: 16px;
       line-height: 22px;
-   }
-
-   & td:last-child {
-      text-align: right;
+      text-align: left;
    }
 
    &__mobile {
@@ -83,63 +79,26 @@
 
       @media screen and (max-width: 690px) {
          display: block;
-         padding: 10px;
-      }
-   }
-   &__delete-icon.root {
-      @media screen and (max-width: 690px) {
-         display: none;
       }
    }
 
-   &__mobile-delete-icon.root {
-      display: none;
-      @media screen and (max-width: 690px) {
-         display: block;
-      }
-   }
-
-   &__mobile-button.root {
-      min-width: 0;
-      padding: 5px;
-   }
-
-   &__mobile-inner {
+   &__mobile-element {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      font-size: 18px;
-      min-height: 180px;
+      text-align: left;
+      padding: 15px 20px;
+      min-height: 140px;
    }
 
-   &__mobile-coppy-image {
-      margin-left: 10px;
-      position: absolute;
-      top: 0;
-      right: -30px;
-   }
-
-   &__mobile:nth-child(even) {
+   &__mobile-element:nth-child(even) {
       background-color: #f0eafc;
    }
-
-   &__mobile-status,
-   &__mobile-number-delete,
-   &__mobile-sender {
-      display: flex;
-      justify-content: space-between;
+   &__mobile-element > div {
+      font-size: 18px;
+      color: black;
    }
-
-   &__mobile-status > div:nth-child(1),
-   &__mobile-number-delete > div:nth-child(1),
-   &__mobile-sender > div:nth-child(1) {
-      position: relative;
-      text-align: left;
-   }
-   &__mobile-status > div:nth-child(2),
-   &__mobile-sender > div:nth-child(2) {
-      width: 60%;
-      text-align: left;
+   &__mobile-element > div:nth-child(n + 2):nth-child(-n + 3) {
       color: #52616b;
       font-size: 16px;
    }

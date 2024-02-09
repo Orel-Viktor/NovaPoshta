@@ -38,45 +38,47 @@ export function TrackingForm() {
       reset();
    };
    return (
-      <Form
-         initialValues={{
-            tracking: currentTrackingNumber,
-         }}
-         validate={onValidate}
-         onSubmit={onSubmit}
-         render={(formProps) => {
-            const { handleSubmit, valid } = formProps;
-            return (
-               <Box
-                  component="form"
-                  onSubmit={handleSubmit}
-                  className=" form-tracking "
-               >
-                  <Box component="h2">Введіть данні для пошуку посилки:</Box>
-                  <Box className="box">
-                     <Field
-                        name="tracking"
-                        label="Номер ТТН"
-                        component={TextField}
-                     />
+      <Box sx={{ marginBottom: '20px' }} component="div">
+         <Form
+            initialValues={{
+               tracking: currentTrackingNumber,
+            }}
+            validate={onValidate}
+            onSubmit={onSubmit}
+            render={(formProps) => {
+               const { handleSubmit, valid } = formProps;
+               return (
+                  <Box
+                     component="form"
+                     onSubmit={handleSubmit}
+                     className=" form-tracking "
+                  >
+                     <Box component="h2">Введіть данні для пошуку посилки:</Box>
+                     <Box className="box">
+                        <Field
+                           name="tracking"
+                           label="Номер ТТН"
+                           component={TextField}
+                        />
+                     </Box>
+                     <Box className="box">
+                        <Field
+                           placeholder="380962700019"
+                           name="phone"
+                           label="Телефон"
+                           component={TextField}
+                           // variant="standard"
+                        />
+                     </Box>
+                     <Box>
+                        <Button type="submit" xs={4} disabled={!valid}>
+                           Пошук
+                        </Button>
+                     </Box>
                   </Box>
-                  <Box className="box">
-                     <Field
-                        placeholder="380962700019"
-                        name="phone"
-                        label="Телефон"
-                        component={TextField}
-                        // variant="standard"
-                     />
-                  </Box>
-                  <Box>
-                     <Button type="submit" xs={4} disabled={!valid}>
-                        Пошук
-                     </Button>
-                  </Box>
-               </Box>
-            );
-         }}
-      />
+               );
+            }}
+         />
+      </Box>
    );
 }

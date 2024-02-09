@@ -151,37 +151,41 @@ export function TrackingHistory() {
    return (
       <Box className="tracking-history">
          <Box component="h2">Історія пошуку</Box>
-         <div className="tracking-history__table-div">
-            <table>
-               <thead>
-                  <tr>
-                     <th>TTH</th>
-                     <th>Віпправник</th>
-                     <th>Статус</th>
-                     <th></th>
-                  </tr>
-               </thead>
+         {items.length ? (
+            <div className="tracking-history__table-div">
+               <table>
+                  <thead>
+                     <tr>
+                        <th>TTH</th>
+                        <th>Віпправник</th>
+                        <th>Статус</th>
+                        <th></th>
+                     </tr>
+                  </thead>
 
-               {items.length
-                  ? items.map((data, id) => {
-                       return (
-                          <tbody key={data.Number + id}>
-                             <TrackingHistoryInner
-                                onClick={() =>
-                                   checkItem([
-                                      data.Number,
-                                      data.PhoneRecipient || data.PhoneSender,
-                                   ])
-                                }
-                                data={data}
-                             />
-                          </tbody>
-                       );
-                    })
-                  : //
-                    null}
-            </table>
-         </div>
+                  {items.length
+                     ? items.map((data, id) => {
+                          return (
+                             <tbody key={data.Number + id}>
+                                <TrackingHistoryInner
+                                   onClick={() =>
+                                      checkItem([
+                                         data.Number,
+                                         data.PhoneRecipient ||
+                                            data.PhoneSender,
+                                      ])
+                                   }
+                                   data={data}
+                                />
+                             </tbody>
+                          );
+                       })
+                     : //
+                       null}
+               </table>
+            </div>
+         ) : null}
+
          {items.length
             ? items.map((data, id) => {
                  return (

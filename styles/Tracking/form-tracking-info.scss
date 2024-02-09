@@ -1,4 +1,5 @@
 .form-tracking {
+   //also used for FindCityDepart component
    display: flex;
    flex-direction: column;
    justify-content: space-between;
@@ -21,7 +22,7 @@
       width: 100%;
    }
    & .box-input {
-      width: 100%;
+      width: 100%; //in TextField component
    }
 
    @media screen and (max-width: 1200px) {
