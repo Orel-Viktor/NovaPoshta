@@ -107,7 +107,13 @@ function MobileTrackingHistoryInner(props) {
          {data ? (
             <div className="tracking-history__mobile-inner">
                <div className="tracking-history__mobile-number-delete">
-                  <div>
+                  <div
+                     onKeyDown={handleCellKeyPress}
+                     onClick={handleCellClick}
+                     tabIndex={0}
+                     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+                     role="button"
+                  >
                      {notification ? (
                         <div className="notification">{notification}</div>
                      ) : null}
