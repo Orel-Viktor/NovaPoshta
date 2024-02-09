@@ -77,18 +77,17 @@
       text-align: right;
    }
 
-   &__delete-icon.root {
-      @media screen and (max-width: 690px) {
-         display: none;
-      }
-   }
-
    &__mobile {
       display: none;
 
       @media screen and (max-width: 690px) {
          display: block;
          padding: 10px;
+      }
+   }
+   &__delete-icon.root {
+      @media screen and (max-width: 690px) {
+         display: none;
       }
    }
 
