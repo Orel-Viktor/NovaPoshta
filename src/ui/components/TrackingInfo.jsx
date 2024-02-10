@@ -73,20 +73,24 @@ export function TrackingInfo() {
    const currentItem = items.length
       ? items.find((data) => data.Number === currentTrackingNumber)
       : null;
-   return loading ? (
-      <LoaderLinear />
-   ) : (
+   return (
       <Box className="tracking-info">
-         <Box component="h2">Деталі про відправлення:</Box>
-         {currentItem ? (
-            <TrackingInfoInner data={currentItem}></TrackingInfoInner>
+         {loading ? (
+            <LoaderLinear />
          ) : (
-            <Box
-               className="tracking-info__advice"
-               sx={{ color: 'secondary.info' }}
-            >
-               Введіть пошукові данні
-            </Box>
+            <>
+               <Box component="h2">Деталі про відправлення:</Box>
+               {currentItem ? (
+                  <TrackingInfoInner data={currentItem} />
+               ) : (
+                  <Box
+                     className="tracking-info__advice"
+                     sx={{ color: 'secondary.info' }}
+                  >
+                     Введіть пошукові данні
+                  </Box>
+               )}
+            </>
          )}
       </Box>
    );

@@ -11,7 +11,7 @@
    min-height: 375px;
    max-width: 830px;
    width: 100%;
-   padding: 46px 73px 46px 142px;
+   padding: 46px 73px 46px 100px;
    font-family: var(--main-font);
 
    & h2 {
@@ -29,7 +29,7 @@
       padding: 20px 30px;
    }
    @media screen and (max-width: 480px) {
-      min-height: 200px;
+      min-height: 240px;
       padding: 20px 20px;
       & h2 {
          display: none;

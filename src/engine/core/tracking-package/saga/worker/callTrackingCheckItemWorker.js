@@ -9,8 +9,8 @@ export function* callTrackingCheckItemWorker(action) {
    yield put(setLoading(true));
    yield delay(300);
    yield window.scrollTo({
-      top: 200,
-      behavior: 'smooth', // Добавляем плавную анимацию прокрутки
+      top: 100,
+      behavior: 'smooth',
    });
 
    const { payload } = action;

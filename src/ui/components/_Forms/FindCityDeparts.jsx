@@ -20,7 +20,7 @@ export function FindCityDeparts() {
    const onValidate = (value) => {
       const errors = {};
       if (value.city === undefined) {
-         errors.city = 'Введите значние';
+         errors.city = 'Введіть значення';
          return errors;
       }
    };

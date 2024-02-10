@@ -115,7 +115,9 @@ function MobileTrackingHistoryInner(props) {
                      role="button"
                   >
                      {notification ? (
-                        <div className="notification">{notification}</div>
+                        <div className="tracking-history__mobile-notification">
+                           {notification}
+                        </div>
                      ) : null}
                      {data.Number}
                      <img

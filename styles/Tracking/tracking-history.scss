@@ -118,6 +118,24 @@
       top: 0;
       right: -30px;
    }
+   &__mobile-notification {
+      position: absolute;
+      top: -40%;
+      animation: fadeInOut 2s ease-in-out forwards;
+      font-size: 10px;
+   }
+
+   @keyframes fadeInOut {
+      0% {
+         opacity: 0; /* Начальная прозрачность */
+      }
+      50% {
+         opacity: 1; /* Полная видимость на середине анимации */
+      }
+      100% {
+         opacity: 0; /* Полное исчезновение в конце анимации */
+      }
+   }
 
    &__mobile:nth-child(odd) {
       background-color: #f0eafc;
