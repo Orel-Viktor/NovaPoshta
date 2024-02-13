@@ -25,18 +25,18 @@ function TrackingInfoInner(props) {
                {data.PhoneRecipient || data.PhoneSender ? (
                   <Box>
                      <div>
-                        <Box>Відправник :</Box>
-                        {data.CounterpartySenderDescription ||
-                           data.CounterpartyRecipientDescription}
+                        <Box>Відправник:</Box>
+                        {data.CounterpartyRecipientDescription ||
+                           data.SenderFullNameEW}
                      </div>
                      <div>
-                        <Box>Отримувач :</Box>
+                        <Box>Отримувач:</Box>
                         {data.RecipientFullName
                            ? data.RecipientFullName
                            : data.RecipientFullNameEW}{' '}
                      </div>
                      <div>
-                        <Box>Місто відправлення :</Box>
+                        <Box>Місто відправлення:</Box>
                         {data.SenderAddress ||
                            'м.' +
                               ' ' +
