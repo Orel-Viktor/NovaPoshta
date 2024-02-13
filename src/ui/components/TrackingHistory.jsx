@@ -59,8 +59,8 @@ function TrackingHistoryInner(props) {
             <>
                <td>{data.Number}</td>
                <td>
-                  {data.CounterpartyRecipientDescription ||
-                     data.SenderFullNameEW}
+                  {data.SenderFullNameEW ||
+                     data.CounterpartyRecipientDescription}
                </td>
                <td>{data.Status}</td>
                <td
@@ -145,7 +145,7 @@ function MobileTrackingHistoryInner(props) {
                   <div className="tracking-history__mobile-sender">
                      <div>Віпправник</div>
                      <div>
-                        {data.CounterpartySenderDescription ||
+                        {data.SenderFullNameEW ||
                            data.CounterpartyRecipientDescription}
                      </div>
                   </div>
