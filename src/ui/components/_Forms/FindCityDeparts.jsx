@@ -4,7 +4,7 @@ import { Form, Field } from 'react-final-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorsFindCityDeparts } from '../../../engine/core/find-city/selectors';
 // Parts
-import { Grid, Box } from '@mui/material';
+import { Box } from '@mui/material';
 // Components
 import { Button } from '../Button';
 import TextField from './TextField';
@@ -20,58 +20,50 @@ export function FindCityDeparts() {
    const onValidate = (value) => {
       const errors = {};
       if (value.city === undefined) {
-         errors.city = 'Введите значние';
+         errors.city = 'Введіть значення';
          return errors;
       }
    };
 
    return (
-      <Box sx={{ marginBottom: '20px' }} component="div">
+      <Box sx={{ margin: '100px 0px 40px 0' }} component="div">
          <Form
             validate={onValidate}
             onSubmit={onSubmit}
             render={(formProps) => {
                const { handleSubmit, valid } = formProps;
                return (
-                  <Box component="form" onSubmit={handleSubmit}>
-                     <Grid
-                        spacing={2}
-                        sx={{
-                           display: 'flex',
-                           justifyContent: 'space-between',
-                           alignItems: 'center',
-                        }}
-                        container
-                     >
-                        <Grid item={true} xs={5}>
-                           <Field
-                              name="city"
-                              label="city"
-                              component={TextField}
-                           />
-                        </Grid>
-                        <Grid item={true} xs={4}>
-                           <Field
-                              name="numberDeparts"
-                              label="numberDeparts"
-                              component={TextField}
-                           />
-                        </Grid>
-                        <Grid item={true} xs={3}>
-                           <Button
-                              className={
-                                 !valid
-                                    ? '  custom-button-shadow root button-shadow'
-                                    : null
-                              }
-                              type="submit"
-                              xs={4}
-                              disabled={!valid || loading}
-                           >
-                              Send
-                           </Button>
-                        </Grid>
-                     </Grid>
+                  <Box
+                     component="form"
+                     onSubmit={handleSubmit}
+                     className="form-tracking"
+                  >
+                     <Box component="h2">
+                        Введіть данні для пошуку відділеня:
+                     </Box>
+                     <Box className="box">
+                        <Field
+                           name="city"
+                           label="Місто"
+                           component={TextField}
+                        />
+                     </Box>
+                     <Box className="box">
+                        <Field
+                           name="numberDeparts"
+                           label="Відділеня"
+                           component={TextField}
+                        />
+                     </Box>
+                     <Box>
+                        <Button
+                           type="submit"
+                           xs={4}
+                           disabled={!valid || loading}
+                        >
+                           Send
+                        </Button>
+                     </Box>
                   </Box>
                );
             }}
