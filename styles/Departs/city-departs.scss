@@ -1,0 +1,108 @@
+.departs-city {
+   display: flex;
+   flex-direction: column;
+   padding: 46px 125px;
+   border-radius: 10px;
+   background-color: (var(--main-color));
+   font-family: var(--main-font);
+
+   @media screen and (max-width: 930px) {
+      padding: 10px;
+   }
+   @media screen and (max-width: 690px) {
+      padding: 0;
+   }
+   & h2 {
+      text-align: left;
+      @media screen and (max-width: 690px) {
+         padding: 10px;
+      }
+   }
+
+   & table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--main-color); //white
+   }
+
+   &__table-div {
+      overflow: auto;
+      width: 100%;
+
+      @media screen and (max-width: 690px) {
+         display: none;
+      }
+   }
+   & thead {
+      background-color: var(--theme-color); //purple
+      text-align: left;
+      border-radius: 10px 10px 0 0;
+      padding: 13px 26px;
+   }
+   & tbody {
+      text-align: left;
+   }
+   &__tr:nth-child(odd) {
+      background-color: #f0eafc;
+   }
+
+   & th {
+      padding: 13px 26px;
+      color: var(--main-color);
+      width: 40%;
+   }
+
+   & th:first-child {
+      border-radius: 10px 0 0 0;
+      width: 20%;
+   }
+
+   & th:last-child {
+      border-radius: 0 10px 0 0;
+      width: 20%;
+   }
+
+   & td {
+      padding: 9px 22px;
+      color: #52616b;
+      opacity: 85%;
+      font-family: var(--main-font);
+      font-size: 16px;
+      line-height: 22px;
+      text-align: left;
+   }
+
+   & tr:hover {
+      background-color: #c6c0d0;
+      cursor: pointer;
+   }
+
+   &__mobile {
+      display: none;
+
+      @media screen and (max-width: 690px) {
+         display: block;
+      }
+   }
+
+   &__mobile-element {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      text-align: left;
+      padding: 15px 20px;
+      min-height: 140px;
+   }
+
+   &__mobile-element:nth-child(odd) {
+      background-color: #f0eafc;
+   }
+   &__mobile-element > div {
+      font-size: 18px;
+      color: black;
+   }
+   &__mobile-element > div:nth-child(n + 2):nth-child(-n + 3) {
+      color: #52616b;
+      font-size: 16px;
+   }
+}

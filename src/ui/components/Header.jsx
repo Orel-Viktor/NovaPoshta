@@ -1,27 +1,47 @@
 // Core
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // Parts
-import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { Button } from './Button';
-import { styled } from '@mui/system';
+// import { Button } from './Button';
+import { Link } from 'react-router-dom';
 // Engine
 import { routes } from '../../engine/config/routers';
 
-const Wrapper = styled(Box)({
-   display: 'flex',
-   padding: '20px',
-   justifyContent: 'space-between',
-   alignItems: 'center,',
-});
-
 export function Header() {
+   const [activeLink, setActiveLink] = useState('link1');
+   const handleClick = (link) => {
+      setActiveLink(link);
+      sessionStorage.setItem('activeLink', link);
+   };
+
+   useEffect(() => {
+      const storedLink = sessionStorage.getItem('activeLink');
+      if (storedLink) {
+         setActiveLink(storedLink);
+      }
+   }, []);
    return (
-      <Wrapper component="div">
-         <Stack spacing={2} direction="row">
-            <Button to={routes.home}>Знайти посилку</Button>
-            <Button to={routes.admissionsList}>Знайти відділення</Button>
-         </Stack>
-      </Wrapper>
+      <Stack spacing={2} direction="row">
+         <Link
+            onClick={() => {
+               handleClick('link1');
+            }}
+            className={
+               activeLink === 'link1' ? 'header-link active ' : 'header-link'
+            }
+            to={routes.home}
+         >
+            Знайти посилку
+         </Link>
+         <Link
+            onClick={() => handleClick('link2')}
+            className={
+               activeLink === 'link2' ? 'header-link active ' : 'header-link'
+            }
+            to={routes.admissionsList}
+         >
+            Знайти відділення
+         </Link>
+      </Stack>
    );
 }

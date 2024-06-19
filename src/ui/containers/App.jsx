@@ -1,20 +1,17 @@
 // Core
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { HistoryRouter } from 'redux-first-history/rr6';
-
-// Engine
-import { store, history } from '../../engine/config/store';
-import { Provider } from 'react-redux';
-import { pages } from '../../engine/config/routers';
-
+import { Route, Routes, HashRouter } from 'react-router-dom';
 // Components
 import { Layout } from './Layout';
+// Engine
+import { pages } from '../../engine/config/routers';
+import { store } from '../../engine/config/store';
+import { Provider } from 'react-redux';
 
 function App() {
    return (
       <Provider store={store}>
-         <HistoryRouter history={history}>
+         <HashRouter>
             <Routes>
                <Route path="/" element={<Layout />}>
                   {pages.map((route) => (
@@ -26,7 +23,7 @@ function App() {
                   ))}
                </Route>
             </Routes>
-         </HistoryRouter>
+         </HashRouter>
       </Provider>
    );
 }
