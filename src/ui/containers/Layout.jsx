@@ -65,11 +65,6 @@ export function Layout() {
             </React.Fragment>
             <Outlet />
          </Container>
-         {/* <ScrollTop>
-               <Fab size="small" aria-label="scroll back to top">
-                  <KeyboardArrowUpIcon />
-               </Fab>
-            </ScrollTop> */}
       </ThemeProvider>
    );
 }
