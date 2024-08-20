@@ -21,7 +21,7 @@ const theme = createTheme({
       secondary: {
          main: '#e65100',
          info: '#EC1F2B',
-         status: '#90EE90',
+         status: '#255f00.',
       },
    },
 });
