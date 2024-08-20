@@ -16,7 +16,7 @@ import Slide from '@mui/material/Slide';
 const theme = createTheme({
    palette: {
       primary: {
-         main: '#9043ff',
+         main: '#9643ff',
       },
       secondary: {
          main: '#e65100',
