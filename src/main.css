@@ -1,4 +1,5 @@
 @import '../styles/App.css';
+@import 'normalize.css';
 
 :root {
    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -17,12 +18,8 @@
 }
 
 a {
-   font-weight: 500;
-   color: black;
    text-decoration: inherit;
-}
-a:hover {
-   color: #0a1080;
+   color: black;
 }
 
 body {
@@ -57,22 +54,7 @@ button:focus-visible {
    outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-   :root {
-      color: #213547;
-      background-color: #ffffff;
-   }
-   a:hover {
-      color: #747bff;
-   }
-   button {
-      background-color: #f9f9f9;
-   }
-}
 @media screen and (max-width: 600px) {
-   a {
-      font-size: 12px;
-   }
    /* SCROLLING */
    .css-mgur8 {
       bottom: 0;

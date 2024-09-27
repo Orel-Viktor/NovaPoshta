@@ -9,14 +9,11 @@ import { TrackingHistory } from '../components/TrackingHistory';
 export function Main() {
    return (
       <Box component="div">
-         <TrackingForm />
-         <Box
-            className="root tracking-mobile "
-            sx={{ display: 'flex', justifyContent: 'space-between' }}
-         >
+         <Box className="form-tracking-info">
+            <TrackingForm />
             <TrackingInfo />
-            <TrackingHistory />
          </Box>
+         <TrackingHistory />
       </Box>
    );
 }
