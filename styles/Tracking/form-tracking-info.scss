@@ -1,0 +1,79 @@
+.form-tracking {
+   //also used for FindCityDepart component
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: self-start;
+
+   background-color: var(--main-color); //white
+   border-radius: 10px;
+
+   min-height: 375px;
+   max-width: 830px;
+   width: 100%;
+   padding: 46px 73px 46px 100px;
+   font-family: var(--main-font);
+
+   & h2 {
+      font-size: 24px;
+   }
+
+   & .box {
+      width: 100%;
+   }
+   & .box-input {
+      width: 100%; //in TextField component
+   }
+
+   @media screen and (max-width: 1200px) {
+      padding: 20px 30px;
+   }
+   @media screen and (max-width: 480px) {
+      min-height: 240px;
+      padding: 20px 20px;
+      & h2 {
+         display: none;
+      }
+   }
+}
+
+.form-tracking-info {
+   display: flex;
+   justify-content: space-between;
+   gap: 20px;
+   font-family: var(--main-font);
+   margin: 100px 0 20px 0;
+
+   @media screen and (max-width: 900px) {
+      flex-direction: column;
+   }
+}
+
+.tracking-info {
+   align-self: self-start;
+   align-items: self-start;
+   flex-direction: column;
+   display: flex;
+
+   width: 100%;
+   min-height: min-content;
+   max-width: 830px;
+   padding: 46px 51px;
+
+   background-color: var(--main-color);
+   border-radius: 10px;
+   font-family: var(--main-font);
+
+   &__advice {
+      position: relative;
+      padding: 0 0 0 25px;
+   }
+   &__advice::before {
+      position: absolute;
+      content: url('/src/ui/components/Helpers/advice-image.svg');
+      left: 0;
+   }
+   &__details {
+      text-align: start;
+   }
+}

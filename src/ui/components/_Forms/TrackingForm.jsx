@@ -4,7 +4,7 @@ import { Form, Field } from 'react-final-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorsTrackingPackage } from '../../../engine/core/tracking-package/selectors';
 // Parts
-import { Grid, Box } from '@mui/material';
+import { Box } from '@mui/material';
 
 // Components
 import TextField from './TextField';
@@ -22,14 +22,13 @@ export function TrackingForm() {
       const errors = {};
       const regExpDigit = /^\d+$/;
       if (value.tracking === undefined) {
-         errors.tracking = 'Введите значние';
+         errors.tracking = 'Введіть значення';
       } else if (!regExpDigit.test(value.tracking)) {
-         errors.tracking =
-            'допускаются только числа,возможно в поле есть пробелы';
+         errors.tracking = 'тільки числа, можливо є пробіли';
       } else if (value.tracking.length < 14) {
-         errors.tracking = 'вы ввели меньше 14 цифр';
+         errors.tracking = 'введено менше 14 цифр';
       } else if (value.tracking.length > 14) {
-         errors.tracking = 'вы ввели больше 14 цифр';
+         errors.tracking = 'введено білше 14 цифр';
       }
       return errors;
    };
@@ -39,7 +38,7 @@ export function TrackingForm() {
       reset();
    };
    return (
-      <div>
+      <Box sx={{ marginBottom: '20px' }} component="div">
          <Form
             initialValues={{
                tracking: currentTrackingNumber,
@@ -50,53 +49,36 @@ export function TrackingForm() {
                const { handleSubmit, valid } = formProps;
                return (
                   <Box
-                     sx={{ marginBottom: '80px' }}
                      component="form"
                      onSubmit={handleSubmit}
+                     className=" form-tracking "
                   >
-                     <Grid
-                        spacing={2}
-                        sx={{
-                           display: 'flex',
-                           justifyContent: 'space-between',
-                           alignItems: 'center',
-                        }}
-                        container
-                     >
-                        <Grid item={true} xs={5}>
-                           <Field
-                              name="tracking"
-                              label="traking"
-                              component={TextField}
-                           />
-                        </Grid>
-                        <Grid item={true} xs={4}>
-                           <Field
-                              placeholder="380962700019"
-                              name="phone"
-                              label="phone"
-                              component={TextField}
-                           />
-                        </Grid>
-                        <Grid item={true} xs={3}>
-                           <Button
-                              className={
-                                 !valid
-                                    ? '  custom-button-shadow root button-shadow'
-                                    : null
-                              }
-                              type="submit"
-                              xs={4}
-                              disabled={!valid}
-                           >
-                              Send
-                           </Button>
-                        </Grid>
-                     </Grid>
+                     <Box component="h2">Введіть данні для пошуку посилки:</Box>
+                     <Box className="box">
+                        <Field
+                           name="tracking"
+                           label="Номер ТТН"
+                           component={TextField}
+                        />
+                     </Box>
+                     <Box className="box">
+                        <Field
+                           placeholder="380962700019"
+                           name="phone"
+                           label="Телефон"
+                           component={TextField}
+                           // variant="standard"
+                        />
+                     </Box>
+                     <Box>
+                        <Button type="submit" xs={4} disabled={!valid}>
+                           Пошук
+                        </Button>
+                     </Box>
                   </Box>
                );
             }}
          />
-      </div>
+      </Box>
    );
 }

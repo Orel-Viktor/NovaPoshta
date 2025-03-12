@@ -1,0 +1,8 @@
+@font-face {
+   font-family: 'FixelDisplay-Medium';
+   src: url('/fonts/FixelAll/FixelDisplay/FixelDisplay-Medium.otf');
+}
+
+:root {
+   --main-font: FixelDisplay-Medium, sans-serif;
+}

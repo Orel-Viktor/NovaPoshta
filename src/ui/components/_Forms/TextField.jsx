@@ -8,9 +8,9 @@ export default function TextField(props) {
    return (
       <TextFieldMui
          InputProps={{
-            sx: { borderRadius: '40px', overflow: 'hidden' },
-            className: 'root mobile-input custom-input',
+            sx: { width: '100%' },
          }}
+         className="box-input"
          placeholder={placeholder}
          {...input}
          error={Boolean(meta.error && meta.touched)}

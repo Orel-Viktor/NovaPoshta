@@ -1,5 +1,5 @@
 // Core
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectorsTrackingPackage } from '../../engine/core/tracking-package/selectors';
 import {
@@ -8,39 +8,156 @@ import {
 } from '../../engine/core/tracking-package/saga/asyncActions';
 // // Parts
 import { Box } from '@mui/material';
-import { styled } from '@mui/system';
+
 // Components
 import { Button } from './Button';
-import IconDelete from './_Icons/IconDelete.jsx';
-
-const Wrapper = styled(Box)({});
+import IconDelete from '../../../public/icons/IconDelete';
 
 function DelButton(props) {
    const { onClick } = props;
    return (
-      <Button onClick={onClick}>
+      <Button
+         className="tracking-history__mobile-button root"
+         onClick={onClick}
+      >
          <IconDelete />
+         <img
+            className="tracking-history__mobile-delete-icon root"
+            src="./icons/deleteMobileIcon.png"
+            alt="видалити  ТТН"
+         />
       </Button>
    );
 }
+function handleCellClick(event) {
+   event.stopPropagation();
+}
+const handleCellKeyPress = (event) => {
+   event.key === 'Enter' || event.key === ' ';
+};
 
 function TrackingHistoryInner(props) {
    const { data, onClick } = props;
+   const dispatch = useDispatch();
+
+   const deleteItem = (clickedTrackingNumber) => {
+      dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
+   };
    return (
-      <Wrapper>
-         <Box
-            className="tracking tracking-history root"
-            onClick={onClick}
-            sx={{
-               cursor: 'pointer',
-               fontSize: '30px',
-               color: 'primary.main',
-               marginRight: '10px',
-            }}
-         >
-            {data ? data.Number : <div>Дані відсутні</div>}
-         </Box>
-      </Wrapper>
+      <Box
+         className="tracking-history__tr"
+         component="tr"
+         onClick={onClick}
+         sx={{
+            cursor: 'pointer',
+            fontSize: '30px',
+
+            marginRight: '10px',
+         }}
+      >
+         {data ? (
+            <>
+               <td>{data.Number}</td>
+               <td>
+                  {data.SenderFullNameEW ||
+                     data.CounterpartyRecipientDescription}
+               </td>
+               <td>{data.Status}</td>
+               <td
+                  onClick={handleCellClick}
+                  onKeyDown={handleCellKeyPress}
+                  // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+                  role="button"
+               >
+                  <DelButton onClick={() => deleteItem(data.Number)} />
+               </td>
+            </>
+         ) : null}
+      </Box>
+   );
+}
+
+function MobileTrackingHistoryInner(props) {
+   const [notification, setNotification] = useState(null);
+   const { data, onClick } = props;
+   const dispatch = useDispatch();
+   const deleteItem = (clickedTrackingNumber) => {
+      dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
+   };
+   function coppyNumber(number) {
+      navigator.clipboard.writeText(number).then(function () {
+         showNotification('Номер Скопійовано');
+      });
+   }
+   function showNotification(message) {
+      setNotification(message);
+      setTimeout(function () {
+         setNotification(null);
+      }, 2000);
+   }
+   return (
+      <Box
+         className="tracking-history__mobile"
+         component="div"
+         onClick={onClick}
+         sx={{
+            cursor: 'pointer',
+         }}
+      >
+         {data ? (
+            <div className="tracking-history__mobile-inner">
+               <div className="tracking-history__mobile-number-delete">
+                  <div
+                     onKeyDown={handleCellKeyPress}
+                     onClick={handleCellClick}
+                     tabIndex={0}
+                     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+                     role="button"
+                  >
+                     {notification ? (
+                        <div className="tracking-history__mobile-notification">
+                           {notification}
+                        </div>
+                     ) : null}
+                     {data.Number}
+                     <img
+                        onKeyDown={handleCellKeyPress}
+                        tabIndex={0}
+                        onClick={() => coppyNumber(data.Number)}
+                        className="tracking-history__mobile-coppy-image"
+                        src="./icons/coppyNumberImage.png"
+                        alt="копіювати ТТН"
+                        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+                        role="button"
+                     />
+                  </div>
+                  <div
+                     onClick={handleCellClick}
+                     onKeyDown={handleCellKeyPress}
+                     tabIndex={0}
+                     role="button"
+                  >
+                     <DelButton onClick={() => deleteItem(data.Number)} />
+                  </div>
+               </div>
+               {data.CounterpartySenderDescription ||
+               data.CounterpartyRecipientDescription ? (
+                  <div className="tracking-history__mobile-sender">
+                     <div>Віпправник</div>
+                     <div>
+                        {data.SenderFullNameEW ||
+                           data.CounterpartyRecipientDescription}
+                     </div>
+                  </div>
+               ) : null}
+
+               <div className="tracking-history__mobile-status">
+                  <div>Статус</div>
+                  <div>{data.Status}</div>
+               </div>
+            </div>
+         ) : null}
+      </Box>
    );
 }
 
@@ -51,41 +168,60 @@ export function TrackingHistory() {
    const checkItem = (clickedTrackingNumber) => {
       dispatch(checkTrackingItemAsync(clickedTrackingNumber));
    };
-   const deleteItem = (clickedTrackingNumber) => {
-      dispatch(deleteTrackingItemAsync(clickedTrackingNumber));
-   };
    return (
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-         <Box className="root text-gradient" component="h2">
-            Поточні ТТН
-         </Box>
+      <Box className="tracking-history">
+         <Box component="h2">Історія пошуку</Box>
          {items.length ? (
-            items.map((data, id) => {
-               return (
-                  <Box
-                     sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        marginBottom: '10px',
-                     }}
-                     key={data.Number + id}
-                  >
-                     <TrackingHistoryInner
-                        onClick={() =>
-                           checkItem([
-                              data.Number,
-                              data.PhoneRecipient || data.PhoneSender,
-                           ])
-                        }
-                        data={data}
-                     />
-                     <DelButton onClick={() => deleteItem(data.Number)} />
-                  </Box>
-               );
-            })
-         ) : (
-            <Box sx={{ color: 'secondary.main' }}>History</Box>
-         )}
+            <div className="tracking-history__table-div">
+               <table>
+                  <thead>
+                     <tr>
+                        <th>TTH</th>
+                        <th>Віпправник</th>
+                        <th>Статус</th>
+                        <th></th>
+                     </tr>
+                  </thead>
+
+                  {items.length
+                     ? items.map((data, id) => {
+                          return (
+                             <tbody key={data.Number + id}>
+                                <TrackingHistoryInner
+                                   onClick={() =>
+                                      checkItem([
+                                         data.Number,
+                                         data.PhoneRecipient ||
+                                            data.PhoneSender,
+                                      ])
+                                   }
+                                   data={data}
+                                />
+                             </tbody>
+                          );
+                       })
+                     : //
+                       null}
+               </table>
+            </div>
+         ) : null}
+
+         {items.length
+            ? items.map((data, id) => {
+                 return (
+                    <MobileTrackingHistoryInner
+                       key={data.Number + id}
+                       onClick={() =>
+                          checkItem([
+                             data.Number,
+                             data.PhoneRecipient || data.PhoneSender,
+                          ])
+                       }
+                       data={data}
+                    />
+                 );
+              })
+            : null}
       </Box>
    );
 }
